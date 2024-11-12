@@ -6,14 +6,23 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
 function Header() {
-  const [headerToShow, setHeaderToShow] = useState(<HeaderDesktop />)
+  const [isMobile, setIsMobile] = useState(false)
+
   useEffect(() => {
-    window.addEventListener('resize', () => {
-      if (window.innerWidth < 799) setHeaderToShow(<HeaderMobile />); else setHeaderToShow(<HeaderDesktop />)
-    })
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 799)
+    }
+
+    handleResize()
+
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
   }, [])
 
-  return headerToShow
+  return isMobile ? <HeaderMobile /> : <HeaderDesktop />
 }
 
 function HeaderDesktop() {
