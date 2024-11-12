@@ -46,7 +46,7 @@ function HeaderMobile() {
   const router = useRouter()
   const [active, setActive] = useState(false)
   return (
-    <header className='relative w-full h-[10dvh] px-4 py-2 shadow-lg flex items-center justify-between overflow-x-hidden'>
+    <header className='relative w-full h-[10dvh] px-4 py-2 shadow-lg flex items-center justify-between'>
       <Image src={logo} alt='Logo' className='h-[70%] w-auto' onClick={() => router.push("/")} />
       <button className='text-5xl font-medium transition-all' onClick={() => setActive(!active)}><span
         className={`block w-8 h-[3px] bg-black transition-all duration-300 transform ${active ? 'rotate-45 translate-y-[10px]' : 'rotate-0'}`}
