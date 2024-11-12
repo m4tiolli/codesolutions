@@ -11,6 +11,7 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        azul: '#005EFF'
       },
       fontFamily: {
         'inter': 'var(--font-inter)'

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Header from "@/components/Header";
 
 const inter = localFont({
   src: "./fonts/InterVariable.ttf",
@@ -21,9 +22,12 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`${inter.variable} antialiased font-inter`}
+        className={`${inter.variable} antialiased font-inter w-screen min-h-screen`}
       >
-        {children}
+        <Header />
+        <main className="px-[10vw] py-[5vh] min-h-[90dvh] relative">
+          {children}
+        </main>
       </body>
     </html>
   );

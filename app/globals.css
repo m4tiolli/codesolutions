@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.li {
+  position: relative;
+}
+
+.li::after {
+  width: 0;
+  height: 2px;
+  background: #000;
+  position: absolute;
+  bottom: -0px;
+  display: block;
+  content: " ";
+  transition: width .2s ease-out;
+}
+
+.li:hover::after {
+  width: 100%;
+}
