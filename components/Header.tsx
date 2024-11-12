@@ -35,7 +35,7 @@ function HeaderDesktop() {
           <li className='li'><Link href={'/services'}>Services</Link></li>
           <li className='li'><Link href={'/portfolio'}>Portfolio</Link></li>
           <li className='li'><Link href={'/contact'}>Contact</Link></li>
-          <li><Link href={'/get-started'} className='bg-azul text-white font-semibold px-4 py-3 rounded-md transition-opacity hover:opacity-70'>Get Started</Link></li>
+          <li><Link href={'/get-started'} className='button'>Get Started</Link></li>
         </ul>
       </nav>
     </header>
@@ -64,7 +64,7 @@ function HeaderMobile() {
           <li className='li'><Link href={'/services'}>Services</Link></li>
           <li className='li'><Link href={'/portfolio'}>Portfolio</Link></li>
           <li className='li'><Link href={'/contact'}>Contact</Link></li>
-          <li><Link href={'/get-started'} className='bg-azul text-white font-semibold px-4 py-3 rounded-md transition-opacity hover:opacity-70'>Get Started</Link></li>
+          <li><Link href={'/get-started'} className='button'>Get Started</Link></li>
         </ul>
       </nav>
     </header>

@@ -9,7 +9,7 @@ function NotFound() {
       <Image src={icon} alt='Página não encontrada' className='w-48 h-auto' />
       <h1 className='text-6xl font-extrabold text-azul'>404</h1>
       <p>A página que você está procurando não existe.</p>
-      <Link href={'/'} className='bg-azul text-white font-semibold text-2xl px-4 py-3 rounded-md hover:opacity-70 transition-opacity'>Voltar para o início</Link>
+      <Link href={'/'} className='button'>Voltar para o início</Link>
     </div>
   )
 }

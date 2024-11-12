@@ -11,7 +11,11 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        azul: '#005EFF'
+        azul: '#005EFF',
+        preto: '#0d121c'
+      },
+      backgroundImage: {
+        'home': 'url("/bg-home.jpg")'
       },
       fontFamily: {
         'inter': 'var(--font-inter)'
