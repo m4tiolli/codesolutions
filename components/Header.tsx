@@ -58,7 +58,7 @@ function HeaderMobile() {
           className={`block w-8 h-[3px] bg-black transition-all duration-300 transform ${active ? '-rotate-45 -translate-y-[0px]' : 'rotate-0 mt-[4px]'}`}
         ></span></button>
       <div className={`w-full h-[90dvh] absolute top-[10dvh] right-0 bg-black bg-opacity-50 z-10 transition-all ${active ? 'visible opacity-100' : 'invisible opacity-0'}`} onClick={() => setActive(!active)}>&nbsp;</div>
-      <nav className={`absolute top-[10dvh] h-[90dvh] w-3/5 bg-white z-20 ${active ? 'right-0' : 'right-[-100%]'} transition-all duration-500`}>
+      <nav className={`absolute top-[10dvh] h-[90dvh] w-3/5 bg-[#F7FAFC] z-20 ${active ? 'right-0' : 'right-[-100%]'} transition-all duration-500`}>
         <ul className='flex items-end flex-col justify-center gap-8 font-medium text-xl pt-[5dvh] px-10 w-full'>
           <li className='li'><Link href={'/about'}>About</Link></li>
           <li className='li'><Link href={'/services'}>Services</Link></li>
