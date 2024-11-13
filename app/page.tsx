@@ -1,3 +1,6 @@
+import thingsWeDo from "@/datas/weDo";
+import Image from "next/image";
+
 export default function Home() {
   return (
     <>
@@ -11,6 +14,17 @@ export default function Home() {
       <div className="flex flex-col items-start justify-start gap-4">
         <h1 className="font-black text-4xl text-preto">What we do</h1>
         <p className="font-normal text-[16px] text-preto w-4/5 text-balance">Our team has experience in a wide range of technologies, frameworks, and platforms. We provide high-quality, custom software development services tailored to your specific needs.</p>
+
+        <div className="grid grid-cols-5 gap-3 pt-8">
+
+          {thingsWeDo.map((thing, index) => (
+            <div className="bg-[#F7FAFC] border border-[#ccd6eb] rounded-md px-3 py-6 flex flex-col items-start justify-start gap-2" key={index}>
+              <Image src={thing.icon} alt="Icon" />
+              <h1 className="font-bold text-preto text-md">{thing.title}</h1>
+              <p className="font-normal text-[#4566A1] text-sm">{thing.description}</p>
+            </div>
+          ))}
+        </div>
 
       </div>
       <div className="flex flex-col items-start justify-start gap-4">

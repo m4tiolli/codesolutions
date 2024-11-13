@@ -19,6 +19,9 @@ const config: Config = {
       },
       fontFamily: {
         'inter': 'var(--font-inter)'
+      },
+      fontSize: {
+        md: "16px"
       }
     },
   },

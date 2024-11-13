@@ -1,5 +1,16 @@
 import { StaticImageData } from 'next/image'
-import apiIcon from './api.png'
+import apiIcon from './apiIcon.svg'
+import frontIcon from './frontIcon.svg'
+import backIcon from './backIcon.svg'
+import fullIcon from './fullIcon.svg'
+import dbIcon from './dbIcon.svg'
+import mobileIcon from './mobileIcon.svg'
+import webIcon from './webIcon.svg'
+import siteIcon from './siteIcon.svg'
+import automationIcon from './autoIcon.svg'
+import serverlessIcon from './serverIcon.svg'
+import desktopIcon from './desktopIcon.svg'
+import cliIcon from './cliIcon.svg'
 
 interface IThingsWeDo {
   icon: StaticImageData,
@@ -7,7 +18,7 @@ interface IThingsWeDo {
   description: string
 }
 
-export const thingsWeDo: IThingsWeDo[12] = [
+export const thingsWeDo: IThingsWeDo[] = [
   {
     icon: apiIcon,
     title: "APIs",
@@ -69,3 +80,5 @@ export const thingsWeDo: IThingsWeDo[12] = [
     description: "We create command-line interface (CLI) tools for automating tasks, managing data, and more."
   },
 ]
+
+export default thingsWeDo
