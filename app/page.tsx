@@ -1,23 +1,15 @@
 "use client"
+import companies from "@/datas/companies";
+import ratings from "@/datas/ratings";
 import thingsWeDo from "@/datas/weDo";
 import Image from "next/image";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import starFilled from '../datas/ratings/star-fill.svg'
+import starOutline from '../datas/ratings/star-outline.svg'
+import ourNumbers from "@/datas/ourNumbers";
 
 const responsive = {
-  superLargeDesktop: {
-    // the naming can be any, depends on you.
-    breakpoint: { max: 4000, min: 3000 },
-    items: 5
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 3
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 467 },
-    items: 2
-  },
   mobile: {
     breakpoint: { max: 768, min: 0 },
     items: 2
@@ -48,7 +40,7 @@ export default function Home() {
           ))}
         </div>
 
-        <Carousel className="lg:hidden w-full" responsive={responsive} showDots={false} infinite autoPlay autoPlaySpeed={5000} removeArrowOnDeviceType="mobile" deviceType="mobile" draggable swipeable sliderClass="itemcarrossa">
+        <Carousel className="lg:hidden w-full pt-8" responsive={responsive} showDots={false} infinite autoPlay autoPlaySpeed={5000} removeArrowOnDeviceType="mobile" deviceType="mobile" draggable swipeable sliderClass="itemcarrossa">
           {thingsWeDo.map((thing, index) => (
             <div className="bg-[#F7FAFC] h-60 border border-[#ccd6eb] rounded-md px-3 py-6 flex flex-col items-start justify-start gap-2" key={index}>
               <Image src={thing.icon} alt="Icon" />
@@ -59,9 +51,70 @@ export default function Home() {
         </Carousel>
 
       </div>
-      <div className="flex flex-col items-start justify-start gap-4">
+      <div className="flex flex-col items-start justify-start gap-4 w-full">
         <h1 className="font-black text-4xl text-preto">Why choose CodeSolutions?</h1>
-        <p className="font-normal text-[16px] text-preto w-4/5 text-balance">When you work with CodeSol, you&apos;re not just hiring a team of developers. You&apos;re partnering with a company that&apos;s dedicated to delivering exceptional software solutions. Here are a few reasons why clients choose us for their development needs:</p>
+        <p className="font-normal text-[16px] text-preto lg:w-4/5 text-balance">When you work with CodeSol, you&apos;re not just hiring a team of developers. You&apos;re partnering with a company that&apos;s dedicated to delivering exceptional software solutions. Here are a few reasons why clients choose us for their development needs:</p>
+
+        <div className="lg:flex items-center justify-between gap-0 w-full pt-8 hidden">
+          {companies.map((company, index) => (
+            <div className="flex flex-col items-start justify-start w-fit" key={index}>
+              <Image src={company.image} alt="Icon" />
+              <h1 className="font-medium text-preto text-md pt-2">{company.name}</h1>
+              <p className="font-normal text-[#4566A1] text-sm">{company.role}</p>
+            </div>
+          ))}
+        </div>
+
+        <Carousel className="lg:hidden w-full pt-8" responsive={responsive} showDots={false} infinite autoPlay autoPlaySpeed={5000} removeArrowOnDeviceType="mobile" deviceType="mobile" draggable swipeable sliderClass="itemcarrossa">
+          {companies.map((company, index) => (
+            <div className="flex flex-col items-start justify-start gap-2 w-fit" key={index}>
+              <Image src={company.image} alt="Icon" />
+              <h1 className="font-bold text-preto text-md">{company.name}</h1>
+              <p className="font-normal text-[#4566A1] text-sm">{company.role}</p>
+            </div>
+          ))}
+        </Carousel>
+      </div>
+
+      <div>
+        <h1 className="font-black text-4xl text-preto">What our clients say</h1>
+
+        <div className="flex items-start justify-start flex-col gap-10 lg:gap-6 w-full pt-8">
+          {ratings.map((rating, index) => (
+            <div className="flex flex-col items-start justify-start gap-2 w-fit" key={index}>
+
+              <div className="flex items-center justify-start gap-3">
+                <Image src={rating.profile} alt="Icon" />
+                <div className="flex flex-col justify-start items-start">
+                  <h1 className="text-md text-preto font-medium">{rating.name}</h1>
+                  <h3 className="font-normal text-sm text-[#4566a1]">{rating.date}</h3>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-start gap-1">
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <Image
+                    src={index < rating.stars ? starFilled : starOutline}
+                    alt="Star"
+                    key={index}
+                  />
+                ))}
+              </div>
+
+
+              <p className="font-normal text-preto text-md">{rating.message}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="w-full flex lg:flex-row flex-col items-center justify-between gap-3">
+        {ourNumbers.map((number, index) => (
+          <div key={index} className="flex flex-col items-center justify-center gap-2 py-4 w-full rounded-md border border-[#ccd6eb]">
+            <h1 className="font-bold text-preto text-2xl">{number.number}</h1>
+            <h2 className="font-normal text-sm text-[#4566a1]">{number.description}</h2>
+          </div>
+        ))}
       </div>
     </>
   );

@@ -18,7 +18,7 @@ interface IThingsWeDo {
   description: string
 }
 
-export const thingsWeDo: IThingsWeDo[] = [
+const thingsWeDo: IThingsWeDo[] = [
   {
     icon: apiIcon,
     title: "APIs",
