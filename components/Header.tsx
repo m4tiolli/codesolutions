@@ -1,33 +1,53 @@
-'use client'
-import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
-import logo from '../public/logo.svg'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+'use client';
+import React, { useContext, useEffect, useState } from 'react';
+import Image from 'next/image';
+import logo from '../public/logo.svg';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { Context } from '../app/providers';
 
 function Header() {
-  const [isMobile, setIsMobile] = useState(false)
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 799)
-    }
+      setIsMobile(window.innerWidth < 799);
+    };
 
-    handleResize()
-
-    window.addEventListener('resize', handleResize)
+    handleResize();
+    window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
-  return isMobile ? <HeaderMobile /> : <HeaderDesktop />
+  return isMobile ? <HeaderMobile /> : <HeaderDesktop />;
 }
 
 function HeaderDesktop() {
+  const context = useContext(Context);
+
+  if (!context) {
+    throw new Error("Contexto não encontrado.");
+  }
+
+  const { section1Ref, section2Ref } = context;
+  const [isFixed, setIsFixed] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (section1Ref.current && section2Ref.current) {
+        const top = section2Ref.current.getBoundingClientRect().top;
+        setIsFixed(top <= 0);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [section1Ref, section2Ref]);
+
   return (
-    <header className='w-full h-[10dvh] px-8 py-2 border-b border-[#E5E8EB] flex items-center justify-between'>
+    <header className={`w-full h-[10dvh] px-8 py-2 border-b border-[#E5E8EB] items-center justify-between z-50 bg-[#f7fafc] ${isFixed ? 'header-fixed' : 'relative'} flex`}>
       <Image src={logo} alt='Logo' className='h-[90%] w-auto' />
       <nav>
         <ul className='flex items-center justify-center gap-4 font-medium'>
@@ -39,14 +59,35 @@ function HeaderDesktop() {
         </ul>
       </nav>
     </header>
-  )
+  );
 }
 
 function HeaderMobile() {
-  const router = useRouter()
-  const [active, setActive] = useState(false)
+  const context = useContext(Context);
+
+  if (!context) {
+    throw new Error("Contexto não encontrado.");
+  }
+
+  const { section1Ref, section2Ref } = context;
+  const [isFixed, setIsFixed] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (section1Ref.current && section2Ref.current) {
+        const top = section2Ref.current.getBoundingClientRect().top;
+        setIsFixed(top <= 0);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [section1Ref, section2Ref]);
+
+  const router = useRouter();
+  const [active, setActive] = useState(false);
+
   return (
-    <header className='relative w-full h-[10dvh] px-4 py-2 border-b border-[#e5e8eb] flex items-center justify-between overflow-x-clip'>
+    <header className={`${isFixed ? 'header-fixed' : 'relative'} w-full h-[10dvh] px-4 py-2 border-b border-[#e5e8eb] flex items-center justify-between overflow-x-clip`}>
       <Image src={logo} alt='Logo' className='h-[70%] w-auto' onClick={() => router.push("/")} />
       <button className='text-5xl font-medium transition-all' onClick={() => setActive(!active)}><span
         className={`block w-8 h-[3px] bg-black transition-all duration-300 transform ${active ? 'rotate-45 translate-y-[10px]' : 'rotate-0'}`}
@@ -68,7 +109,7 @@ function HeaderMobile() {
         </ul>
       </nav>
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;

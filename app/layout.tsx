@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Providers from "./providers";
 
 const inter = localFont({
   src: "./fonts/InterVariable.ttf",
@@ -50,11 +51,13 @@ export default function RootLayout({
       <body
         className={`${inter.variable} antialiased font-inter w-full min-h-screen bg-[#F7FAFC]`}
       >
-        <Header />
-        <main className="px-[10vw] py-[5vh] min-h-[90dvh] pb-[5dvh] relative flex flex-col items-start justify-start gap-12 scroll-smooth">
-          {children}
-        </main>
-        <Footer />
+        <Providers>
+          <Header />
+          <main className="px-[10vw] py-[5vh] min-h-[90dvh] pb-[5dvh] relative flex flex-col items-start justify-start gap-12 scroll-smooth">
+            {children}
+          </main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

@@ -8,6 +8,8 @@ import "react-multi-carousel/lib/styles.css";
 import starFilled from '../datas/ratings/star-fill.svg'
 import starOutline from '../datas/ratings/star-outline.svg'
 import ourNumbers from "@/datas/ourNumbers";
+import { useContext } from "react";
+import { Context } from "./providers";
 
 const responsive = {
   mobile: {
@@ -17,16 +19,25 @@ const responsive = {
 };
 
 export default function Home() {
+  const context = useContext(Context);
+
+  if (!context) {
+    throw new Error("Contexto não encontrado.");
+  }
+
+  const { section1Ref, section2Ref } = context;
+
   return (
     <>
-      <div className="rounded-md bg-home bg-cover w-full lg:w-auto lg:aspect-[10/4.5]">
+      <div ref={section1Ref} className="rounded-md bg-home bg-cover w-full lg:w-auto lg:aspect-[10/4.5]">
         <div className="w-full h-full bg-black bg-opacity-60 flex flex-col items-start justify-center px-10 py-10 lg:py-0 rounded-md gap-6">
           <h1 className="lg:text-6xl text-4xl text-balance text-white font-black">We build systems. We create websites.</h1>
           <p className="text-white font-normal text-[16px] ">CodeSol is a team of software developers who help companies design and build custom software solutions. We&apos;re experts in full-stack development, and we&apos;ve worked with a wide range of clients to deliver high-quality products.</p>
           <button className="button">Get in touch</button>
         </div>
       </div>
-      <div className="flex flex-col items-start justify-start gap-4 w-full lg:w-auto">
+
+      <div ref={section2Ref} className="flex flex-col items-start justify-start gap-4 w-full lg:w-auto">
         <h1 className="font-black text-4xl text-preto">What we do</h1>
         <p className="font-normal text-[16px] text-preto lg:w-4/5 text-balance">Our team has experience in a wide range of technologies, frameworks, and platforms. We provide high-quality, custom software development services tailored to your specific needs.</p>
 
