@@ -22,10 +22,6 @@ function Header() {
     };
   }, []);
 
-  return isMobile ? <HeaderMobile /> : <HeaderDesktop />;
-}
-
-function HeaderDesktop() {
   const context = useContext(Context);
 
   if (!context) {
@@ -46,6 +42,10 @@ function HeaderDesktop() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [section1Ref, section2Ref]);
 
+  return isMobile ? <HeaderMobile isFixed={isFixed} /> : <HeaderDesktop isFixed={isFixed} />;
+}
+
+function HeaderDesktop({ isFixed }: { isFixed: boolean }) {
   return (
     <header className={`w-full h-[10dvh] px-8 py-2 border-b border-[#E5E8EB] items-center justify-between z-50 bg-[#f7fafc] ${isFixed ? 'header-fixed' : 'relative'} flex`}>
       <Image src={logo} alt='Logo' className='h-[90%] w-auto' />
@@ -62,32 +62,13 @@ function HeaderDesktop() {
   );
 }
 
-function HeaderMobile() {
-  const context = useContext(Context);
-
-  if (!context) {
-    throw new Error("Contexto não encontrado.");
-  }
-
-  const { section1Ref, section2Ref } = context;
-  const [isFixed, setIsFixed] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (section1Ref.current && section2Ref.current) {
-        const top = section2Ref.current.getBoundingClientRect().top;
-        setIsFixed(top <= 0);
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [section1Ref, section2Ref]);
+function HeaderMobile({ isFixed }: { isFixed: boolean }) {
 
   const router = useRouter();
   const [active, setActive] = useState(false);
 
   return (
-    <header className={`${isFixed ? 'header-fixed' : 'relative'} w-full h-[10dvh] px-4 py-2 border-b border-[#e5e8eb] flex items-center justify-between overflow-x-clip`}>
+    <header className={`${isFixed ? 'header-fixed' : 'relative'} w-full h-[10dvh] px-4 py-2 border-b z-50 bg-[#f7fafc] border-[#e5e8eb] flex items-center justify-between overflow-x-clip`}>
       <Image src={logo} alt='Logo' className='h-[70%] w-auto' onClick={() => router.push("/")} />
       <button className='text-5xl font-medium transition-all' onClick={() => setActive(!active)}><span
         className={`block w-8 h-[3px] bg-black transition-all duration-300 transform ${active ? 'rotate-45 translate-y-[10px]' : 'rotate-0'}`}
