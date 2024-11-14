@@ -5,6 +5,9 @@ import logo from '../public/logo.svg';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Context } from '../app/providers';
+import brasil from '../datas/langs/Flag_of_Brazil.svg'
+import dropdown from '../public/chevron-down-solid.svg'
+import languages from '@/datas/langs';
 
 function Header() {
   const [isMobile, setIsMobile] = useState(false);
@@ -46,6 +49,9 @@ function Header() {
 }
 
 function HeaderDesktop({ isFixed }: { isFixed: boolean }) {
+
+const [langsOpen, setLangsOpen] = useState(false)
+
   return (
     <header className={`w-full h-[10dvh] px-8 py-2 border-b border-[#E5E8EB] items-center justify-between z-50 bg-[#f7fafc] ${isFixed ? 'header-fixed' : 'relative'} flex`}>
       <Image src={logo} alt='Logo' className='h-[90%] w-auto' />
@@ -56,6 +62,18 @@ function HeaderDesktop({ isFixed }: { isFixed: boolean }) {
           <li className='li'><Link href={'/portfolio'}>Portfolio</Link></li>
           <li className='li'><Link href={'/contact'}>Contact</Link></li>
           <li><Link href={'/get-started'} className='button'>Get Started</Link></li>
+          <button className='h-full w-fit px-2 relative flex items-center justify-center' onClick={() => setLangsOpen(!langsOpen)}>
+            <Image className='size-6 rounded-full object-cover' src={brasil} alt='Language' />
+            <Image src={dropdown} alt='Dropdown' className={`h-6 w-auto p-1 rounded-full ${langsOpen ? 'rotate-180' : 'rotate-0'} transition-all`} />
+            <div className={`absolute -right-5 bg-[#f7fafc] h-fit w-[10vw] px-2 py-2 rounded-md shadow-md flex flex-col items-start justify-start gap-3 ${langsOpen ? 'top-[10dvh] opacity-100 visible' : 'top-[2dvh] opacity-0 invisible'} transition-all duration-500`}>
+              {languages.map((language, index) => (
+                <div onClick={() => alert('oi')} key={index} className='flex items-center justify-start gap-2 transition-all hover:bg-black hover:bg-opacity-30 rounded-md w-full px-2 py-1'>
+                  <Image className='size-6 rounded-full object-cover' src={language.flag} alt='Language' />
+                  <p>{language.abbreviation}</p>
+                </div>
+              ))}
+            </div>
+          </button>
         </ul>
       </nav>
     </header>
