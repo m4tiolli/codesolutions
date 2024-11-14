@@ -10,17 +10,17 @@ interface ILanguages {
 
 const languages: ILanguages[] = [
   {
-    flag: brasil,
-    abbreviation: "PT"
+    flag: usa,
+    abbreviation: "EN"
   },
   {
     flag: spain,
     abbreviation: "ES"
   },
   {
-    flag: usa,
-    abbreviation: "EN"
-  }
+    flag: brasil,
+    abbreviation: "PT"
+  },
 ]
 
 export default languages

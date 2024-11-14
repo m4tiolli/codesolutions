@@ -49,7 +49,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} antialiased font-inter w-full min-h-screen bg-[#F7FAFC]`}
+        className={`${inter.variable} antialiased font-inter w-full min-h-screen dark:bg-zinc-900 bg-[#F7FAFC]`}
       >
         <Providers>
           <Header />
