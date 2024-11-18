@@ -4,10 +4,8 @@ import "../globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Providers from "../providers";
-import {NextIntlClientProvider} from 'next-intl';
-import {getMessages} from 'next-intl/server';
-import {notFound} from 'next/navigation';
-import {routing} from '@/i18n/routing';
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
 import { Languages } from "@/lib/types/languages";
 
 const inter = localFont({
@@ -21,19 +19,14 @@ export const metadata: Metadata = {
   description: "Soluções Tecnológicas Para Seu Negócio",
 };
 
-export default async function LocaleLayout({
+export default async function RootLayout({
   children,
-  params: {locale}
-}: {
-  children: React.ReactNode;
-  params: {locale: string};
-}) {
-  // Ensure that the incoming `locale` is valid
-  if (!routing.locales.includes(locale as Languages)) {
-    notFound();
-  }
-
-  const messages = await getMessages();
+  params: { locale },
+}: Readonly<{
+  children: React.ReactNode
+  params: { locale: Languages }
+}>) {
+  const messages = await getMessages()
 
   return (
     <html lang={locale} className="!scroll-smooth">
@@ -65,7 +58,7 @@ export default async function LocaleLayout({
       <body
         className={`${inter.variable} antialiased font-inter w-full min-h-screen dark:bg-zinc-900 bg-[#F7FAFC]`}
       >
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           <Providers>
             <Header />
             <main className="px-[10vw] py-[5vh] min-h-[90dvh] pb-[5dvh] relative flex flex-col items-start justify-start gap-12 scroll-smooth">
