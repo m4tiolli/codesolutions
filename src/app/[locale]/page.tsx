@@ -5,11 +5,12 @@ import thingsWeDo from "@/datas/weDo";
 import Image from "next/image";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import starFilled from '../datas/ratings/star-fill.svg'
-import starOutline from '../datas/ratings/star-outline.svg'
+import starFilled from '@/datas/ratings/star-fill.svg'
+import starOutline from '@/datas/ratings/star-outline.svg'
 import ourNumbers from "@/datas/ourNumbers";
 import { useContext } from "react";
-import { Context } from "./providers";
+import { Context } from "../providers";
+import { useTranslations } from "next-intl";
 
 const responsive = {
   mobile: {
@@ -19,6 +20,9 @@ const responsive = {
 };
 
 export default function Home() {
+
+  const t = useTranslations('section1');
+
   const context = useContext(Context);
 
   if (!context) {
@@ -31,8 +35,8 @@ export default function Home() {
     <>
       <div ref={section1Ref} className="rounded-md bg-home bg-cover w-full lg:w-auto lg:aspect-[10/4.5]">
         <div className="w-full h-full bg-black bg-opacity-60 flex flex-col items-start justify-center px-10 py-10 lg:py-0 rounded-md gap-6">
-          <h1 className="lg:text-6xl text-4xl text-balance text-white font-black">We build systems. We create websites.</h1>
-          <p className="text-white font-normal text-[16px] ">CodeSol is a team of software developers who help companies design and build custom software solutions. We&apos;re experts in full-stack development, and we&apos;ve worked with a wide range of clients to deliver high-quality products.</p>
+          <h1 className="lg:text-6xl text-4xl text-balance text-white font-black">{t("title")}</h1>
+          <p className="text-white font-normal text-[16px] ">{t("description")}</p>
           <button className="button">Get in touch</button>
         </div>
       </div>

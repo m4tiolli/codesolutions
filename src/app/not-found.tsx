@@ -1,5 +1,5 @@
 import React from 'react'
-import icon from '../public/face-frown-regular.svg'
+import icon from '../../public/face-frown-regular.svg'
 import Image from 'next/image'
 import Link from 'next/link'
 

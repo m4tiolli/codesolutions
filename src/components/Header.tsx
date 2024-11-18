@@ -1,16 +1,16 @@
 'use client';
 import React, { useContext, useEffect, useState } from 'react';
 import Image from 'next/image';
-import logo from '../public/logo.svg';
-import logowhite from '../public/logo white.svg'
+import logo from '../../public/logo.svg';
+import logowhite from '../../public/logo white.svg'
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Context } from '../app/providers';
-import brasil from '../datas/langs/Flag_of_Brazil.svg'
-import dropdown from '../public/chevron-down-solid.svg'
+import { Context } from '@/app/providers';
+import brasil from '@/datas/langs/Flag_of_Brazil.svg'
+import dropdown from '../../public/chevron-down-solid.svg'
 import languages from '@/datas/langs';
-import sol from '../public/sun-regular.svg'
-import lua from '../public/moon-regular.svg'
+import sol from '../../public/sun-regular.svg'
+import lua from '../../public/moon-regular.svg'
 import useDarkMode from '@/hooks/useDarkMode';
 
 function Header() {

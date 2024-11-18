@@ -1,8 +1,8 @@
 "use client"
 import Image from 'next/image'
 import React from 'react'
-import logo from '../public/logo.svg'
-import logowhite from '../public/logo white.svg'
+import logo from '../../public/logo.svg'
+import logowhite from '../../public/logo white.svg'
 import useDarkMode from '@/hooks/useDarkMode'
 function Footer() {
   const { isDarkMode } = useDarkMode()
