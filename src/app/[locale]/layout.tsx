@@ -8,6 +8,7 @@ import {NextIntlClientProvider} from 'next-intl';
 import {getMessages} from 'next-intl/server';
 import {notFound} from 'next/navigation';
 import {routing} from '@/i18n/routing';
+import { Languages } from "@/lib/types/languages";
 
 const inter = localFont({
   src: "../fonts/InterVariable.ttf",
@@ -28,7 +29,7 @@ export default async function LocaleLayout({
   params: {locale: string};
 }) {
   // Ensure that the incoming `locale` is valid
-  if (!routing.locales.includes(locale as any)) {
+  if (!routing.locales.includes(locale as Languages)) {
     notFound();
   }
 
