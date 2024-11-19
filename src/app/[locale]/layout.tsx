@@ -20,18 +20,16 @@ export const metadata: Metadata = {
 
 interface RootLayoutProps {
   children: React.ReactNode;
-  params: { locale: string };
+  params: { locale: { locale: string } };
 }
 
-export default async function RootLayout({
-  children,
-  params,
-}: RootLayoutProps) {
-  const { locale } = params;
-  const messages = await getMessages(params);
+export default async function RootLayout({ children, params }: RootLayoutProps) {
+  // Aguarda explicitamente o `params` e depois obtém o `locale`
+  const { locale } = await Promise.resolve(params);
+  const messages = await getMessages(locale);
 
   return (
-    <html lang={locale} className="!scroll-smooth">
+    <html lang={locale.locale} className="!scroll-smooth">
       <head>
         <meta property="og:image" content="<generated>" />
         <meta property="og:image:type" content="<generated>" />
@@ -60,7 +58,7 @@ export default async function RootLayout({
       <body
         className={`${inter.variable} antialiased font-inter w-full min-h-screen dark:bg-zinc-900 bg-[#F7FAFC]`}
       >
-        <NextIntlClientProvider locale={locale} messages={messages}>
+        <NextIntlClientProvider locale={locale.locale} messages={messages}>
           <Providers>
             <Header />
             <main className="px-[10vw] py-[5vh] min-h-[90dvh] pb-[5dvh] relative flex flex-col items-start justify-start gap-12 scroll-smooth">
