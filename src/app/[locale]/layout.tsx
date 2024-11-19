@@ -5,7 +5,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Providers from "../providers";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getMessages, setRequestLocale } from "next-intl/server";
+import { notFound } from 'next/navigation';
+import { routing } from '@/i18n/routing';
+import { Languages } from "@/lib/types/languages";
 
 const inter = localFont({
   src: "../fonts/InterVariable.ttf",
@@ -18,18 +21,26 @@ export const metadata: Metadata = {
   description: "Soluções Tecnológicas Para Seu Negócio",
 };
 
-interface RootLayoutProps {
+export default async function LocaleLayout({
+  children
+}: {
   children: React.ReactNode;
-  params: { locale: { locale: string } };
-}
+}, params: { locale: string }) {
+  const local = await params
+  const locale = local.locale
+  // Ensure that the incoming `locale` is valid
+  if (!routing.locales.includes(locale as Languages)) {
+    notFound();
+  }
 
-export default async function RootLayout({ children, params }: RootLayoutProps) {
-  // Aguarda explicitamente o `params` e depois obtém o `locale`
-  const { locale } = await Promise.resolve(params);
-  const messages = await getMessages(locale);
+  setRequestLocale(locale);
+
+  // Providing all messages to the client
+  // side is the easiest way to get started
+  const messages = await getMessages();
 
   return (
-    <html lang={locale.locale} className="!scroll-smooth">
+    <html lang={locale} className="!scroll-smooth">
       <head>
         <meta property="og:image" content="<generated>" />
         <meta property="og:image:type" content="<generated>" />
@@ -58,7 +69,7 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
       <body
         className={`${inter.variable} antialiased font-inter w-full min-h-screen dark:bg-zinc-900 bg-[#F7FAFC]`}
       >
-        <NextIntlClientProvider locale={locale.locale} messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           <Providers>
             <Header />
             <main className="px-[10vw] py-[5vh] min-h-[90dvh] pb-[5dvh] relative flex flex-col items-start justify-start gap-12 scroll-smooth">
@@ -70,4 +81,8 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
       </body>
     </html>
   );
+}
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
 }
