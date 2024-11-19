@@ -3,6 +3,7 @@ import companies from '@/datas/companies'
 import React from 'react'
 import Carousel from 'react-multi-carousel'
 import Image from 'next/image'
+import 'react-multi-carousel/lib/styles.css';
 
 const responsive = {
   mobile: {
