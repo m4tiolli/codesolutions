@@ -6,7 +6,6 @@ import Footer from "@/components/Footer";
 import Providers from "../providers";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
-import { Languages } from "@/lib/types/languages";
 
 const inter = localFont({
   src: "../fonts/InterVariable.ttf",
