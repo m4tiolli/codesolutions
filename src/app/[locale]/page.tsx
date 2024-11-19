@@ -5,6 +5,8 @@ import Section3 from "@/components/sections/section3";
 import Section4 from "@/components/sections/section4";
 import Section5 from "@/components/sections/section5";
 
+export const dynamic = 'force-dynamic'
+
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
   setRequestLocale(locale);
