@@ -6,6 +6,8 @@ import Footer from "@/components/Footer";
 import Providers from "../providers";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
+import { setRequestLocale } from 'next-intl/server';
+import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { Languages } from "@/lib/types/languages";
 
@@ -20,14 +22,29 @@ export const metadata: Metadata = {
   description: "Soluções Tecnológicas Para Seu Negócio",
 };
 
+interface RootLayoutProps {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
 export default async function RootLayout({
   children,
-  params: { locale },
-}: Readonly<{
-  children: React.ReactNode
-  params: { locale: Languages }
-}>) {
+  params,
+}: Readonly<RootLayoutProps>) {
+
   const messages = await getMessages()
+
+  const { locale } = await params
+
+  if (!routing.locales.includes(locale as Languages)) {
+    notFound();
+  }
+
+  setRequestLocale(locale);
 
   return (
     <html lang={locale} className="!scroll-smooth">
@@ -71,8 +88,4 @@ export default async function RootLayout({
       </body>
     </html>
   );
-}
-
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
 }
