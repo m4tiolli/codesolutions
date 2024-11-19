@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 interface RootLayoutProps {
   children: React.ReactNode;
-  params: { locale: Languages };
+  params: { locale: string };
 }
 
 export default async function RootLayout({
@@ -29,7 +29,7 @@ export default async function RootLayout({
   params,
 }: RootLayoutProps) {
   const { locale } = params;
-  const messages = await getMessages(locale as unknown as { locale: string }); // Certifique-se de que `getMessages` aceita um parâmetro `locale`.
+  const messages = await getMessages(params);
 
   return (
     <html lang={locale} className="!scroll-smooth">
