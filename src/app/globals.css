@@ -45,6 +45,7 @@ html[class="dark"] .li::after {
   left: 0;
   right: 0;
   animation: slideDown 0.3s forwards;
+  z-index: 999 !important;
 }
 
 @keyframes slideDown {

@@ -72,11 +72,11 @@ function HeaderDesktop({ isFixed }: { isFixed: boolean }) {
       <Image src={isDarkMode ? logowhite : logo} alt='Logo' className='h-[90%] w-auto' />
       <nav>
         <ul className='flex items-center justify-center gap-4 font-medium text-preto dark:text-zinc-200'>
-          <li className='li'><Link href={'/about'}>{t("about")}</Link></li>
-          <li className='li'><Link href={'/services'}>{t("services")}</Link></li>
-          <li className='li'><Link href={'/portfolio'}>{t("portfolio")}</Link></li>
-          <li className='li'><Link href={'/contact'}>{t("contact")}</Link></li>
-          <li><Link href={'/get-started'} className='button'>{t("getStarted")}</Link></li>
+          <li className='li'><Link href={'#about'}>{t("about")}</Link></li>
+          <li className='li'><Link href={'#services'}>{t("services")}</Link></li>
+          <li className='li'><Link href={'#portfolio'}>{t("portfolio")}</Link></li>
+          <li className='li'><Link href={'#contact'}>{t("contact")}</Link></li>
+          <li><Link href={'#get-started'} className='button'>{t("getStarted")}</Link></li>
           <button className='h-full w-fit relative flex items-center justify-center' onClick={() => setLangsOpen(!langsOpen)}>
             <Image className='size-6 rounded-full object-cover' src={params.locale === 'pt' ? brasil : params.locale === 'en' ? usa : esp} alt='Language' />
             <Image src={dropdown} alt='Dropdown' className={`h-4 dropdown w-auto pl-1 rounded-full ${langsOpen ? 'rotate-180 translate-x-1' : 'rotate-0'} transition-all`} />
@@ -120,12 +120,12 @@ function HeaderMobile({ isFixed }: { isFixed: boolean }) {
         ></span></button>
       <div className={`w-full h-[90dvh] absolute top-[10dvh] right-0 bg-black bg-opacity-50 z-10 transition-all ${active ? 'visible opacity-100' : 'invisible opacity-0'}`} onClick={() => setActive(!active)}>&nbsp;</div>
       <nav className={`absolute top-[10dvh] h-[90dvh] w-3/5 dark:bg-zinc-800 bg-[#F7FAFC] z-20 ${active ? 'right-0' : 'right-[-100%]'} transition-all duration-500`}>
-        <ul className='flex items-end flex-col justify-center gap-8 font-medium text-xl pt-[5dvh] px-10 w-full dark:text-zinc-200'>
-          <li className='li'><Link href={'/about'}>{t("about")}</Link></li>
-          <li className='li'><Link href={'/services'}>{t("services")}</Link></li>
-          <li className='li'><Link href={'/portfolio'}>{t("portfolio")}</Link></li>
-          <li className='li'><Link href={'/contact'}>{t("contact")}</Link></li>
-          <li><Link href={'/get-started'} className='button'>{t("getStarted")}</Link></li>
+        <ul className='flex items-end flex-col justify-center gap-8 font-medium text-xl pt-[5dvh] px-5 w-full dark:text-zinc-200'>
+          <li className='li'><Link href={'#about'}>{t("about")}</Link></li>
+          <li className='li'><Link href={'#services'}>{t("services")}</Link></li>
+          <li className='li'><Link href={'#portfolio'}>{t("portfolio")}</Link></li>
+          <li className='li'><Link href={'#contact'}>{t("contact")}</Link></li>
+          <li><Link href={'#get-started'} className='button'>{t("getStarted")}</Link></li>
         </ul>
         <button className='absolute right-16 bottom-5 flex items-center justify-center dark:text-zinc-200' onClick={() => setLangsOpen(!langsOpen)}>
           <Image className='size-6 rounded-full object-cover' src={params.locale === 'pt' ? brasil : params.locale === 'en' ? usa : esp} alt='Language' />

@@ -74,12 +74,12 @@ export default async function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} antialiased font-inter w-full min-h-screen dark:bg-zinc-900 bg-[#F7FAFC]`}
+        className={`${inter.variable} antialiased font-inter w-full z-auto min-h-screen dark:bg-zinc-900 bg-[#F7FAFC]`}
       >
         <NextIntlClientProvider messages={messages}>
           <Providers>
             <Header />
-            <main className="px-[10vw] py-[5vh] min-h-[90dvh] pb-[5dvh] relative flex flex-col items-start justify-start gap-12 scroll-smooth">
+            <main className="px-[10vw] py-[5vh] min-h-[90dvh] pb-[5dvh] relative z-10 flex flex-col items-start justify-start gap-12 scroll-smooth">
               {children}
             </main>
             <Footer />

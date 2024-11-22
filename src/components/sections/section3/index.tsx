@@ -19,7 +19,7 @@ const Section3 = () => {
   const t = useTranslations("section3")
 
   return (
-    <div className="flex flex-col items-start justify-start gap-4 w-full">
+    <div className="flex flex-col items-start justify-start gap-4 w-full" id='portfolio'>
       <h1 className="font-black text-4xl dark:text-zinc-200 text-preto">{t("title")}</h1>
       <p className="font-normal text-[16px] dark:text-zinc-200 text-preto lg:w-4/5 text-balance">{t("description")}</p>
 
