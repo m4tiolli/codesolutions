@@ -5,6 +5,7 @@ import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css';
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
+import 'react-multi-carousel/lib/styles.css';
 
 const responsive = {
   mobile: {
