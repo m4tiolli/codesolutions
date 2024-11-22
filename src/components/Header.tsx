@@ -128,7 +128,7 @@ function HeaderMobile({ isFixed }: { isFixed: boolean }) {
           <li><Link href={'/get-started'} className='button'>{t("getStarted")}</Link></li>
         </ul>
         <button className='absolute right-16 bottom-5 flex items-center justify-center dark:text-zinc-200' onClick={() => setLangsOpen(!langsOpen)}>
-          <Image className='size-6 rounded-full object-cover' src={brasil} alt='Language' />
+          <Image className='size-6 rounded-full object-cover' src={params.locale === 'pt' ? brasil : params.locale === 'en' ? usa : esp} alt='Language' />
           <Image src={dropdown} alt='Dropdown' className={`h-4 dropdown w-auto pl-1 rounded-full ${langsOpen ? 'rotate-180 translate-x-1' : 'rotate-0'} transition-all`} />
           <div className={`absolute -right-5 dark:bg-zinc-800 bg-[#f7fafc] h-fit w-[40vw] px-2 py-2 rounded-md shadow-md flex flex-col items-start justify-start gap-3 ${langsOpen ? 'bottom-[5dvh] opacity-100 visible' : 'bottom-[2dvh] opacity-0 invisible'} transition-all duration-500`}>
             {languages.map((language, index) => (
