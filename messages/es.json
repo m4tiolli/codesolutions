@@ -1,6 +1,110 @@
 {
+  "header": {
+    "about": "Sobre nosotros",
+    "services": "Servicios",
+    "portfolio": "Portafolio",
+    "contact": "Contacto",
+    "getStarted": "Contáctanos"
+  },
+  "footer": {
+    "copy": "Todos los derechos reservados."
+  },
   "section1": {
-    "title": "Construimos sistemas. Creamos sitios web.",
-    "description": "CodeSol es un equipo de desarrolladores de software que ayudan a las empresas a diseñar y crear soluciones de software personalizadas. Somos expertos en desarrollo completo y hemos trabajado con una amplia gama de clientes para ofrecer productos de alta calidad."
+    "title": "Transformando Ideas en Soluciones Digitales",
+    "description": "En CodeSolutions, combinamos tecnología de vanguardia con un servicio personalizado para convertir tus desafíos en oportunidades. Creamos soluciones digitales inteligentes, ágiles y seguras, diseñadas a medida para satisfacer tus necesidades y superar tus expectativas. Ya sea un sistema, un sitio web o una aplicación, estamos aquí para hacerlo realidad.",
+    "button": "Contáctanos"
+  },
+  "section2": {
+    "title": "Aprovechando el Poder de la Tecnología",
+    "description": "En CodeSolutions, nos especializamos en crear soluciones que impulsan el éxito de nuestros clientes. Con un equipo experimentado en diversas tecnologías y plataformas, desarrollamos software personalizado que se adapta exactamente a tus necesidades. Desde sitios web hasta sistemas complejos, entregamos excelencia en cada línea de código."
+  },
+  "section3": {
+    "title": "¿Por Qué Elegirnos?",
+    "description": "Elegir CodeSolutions significa optar por innovación, compromiso y calidad. Nuestros clientes nos eligen porque somos más que desarrolladores: somos socios en el éxito. Trabajamos incansablemente para entregar soluciones que no solo funcionan, sino que también impresionan. Confía en quienes convierten desafíos en resultados."
+  },
+  "section4": {
+    "title": "Palabras que Inspiran Confianza",
+    "description": "Nuestros clientes son el reflejo de nuestro trabajo. Con comentarios sinceros e historias de éxito, comparten cómo CodeSolutions transformó sus proyectos en realidades. Explora las opiniones de quienes confiaron en nosotros y descubre por qué somos la elección correcta para tu próximo desafío."
+  },
+  "section5": {
+    "title": "Resultados que Hablan por Sí Solos",
+    "description": "Los números no mienten, y en CodeSolutions, nuestros resultados reflejan el impacto que creamos. Proyectos entregados, clientes satisfechos y años de experiencia son solo algunos de los hitos que nos destacan. Conoce los números que respaldan nuestro compromiso con la excelencia."
+  },
+  "section6": {
+    "title": "Da el Primer Paso hacia el Éxito",
+    "description": "Tus ideas merecen cobrar vida con quienes entienden el oficio. Contáctanos para transformar sueños en soluciones digitales. Estamos listos para ayudarte a alcanzar tus metas con innovación y creatividad.",
+    "button": "Contacta a CodeSolutions Ahora"
+  },
+  "thingsWeDo": {
+    "apis": {
+      "title": "APIs",
+      "description": "Diseñamos, construimos y mantenemos APIs para aplicaciones web y móviles."
+    },
+    "frontEnd": {
+      "title": "Front-End",
+      "description": "Creamos interfaces de usuario hermosas, responsivas y rápidas utilizando tecnologías web modernas."
+    },
+    "backEnd": {
+      "title": "Back-End",
+      "description": "Diseñamos aplicaciones del lado del servidor escalables, mantenibles y seguras para cualquier caso de uso."
+    },
+    "fullStack": {
+      "title": "Full Stack",
+      "description": "Ofrecemos servicios de desarrollo de extremo a extremo para aplicaciones web y móviles."
+    },
+    "databases": {
+      "title": "Bases de Datos",
+      "description": "Diseñamos, implementamos y optimizamos bases de datos para aplicaciones web y móviles."
+    },
+    "mobileApps": {
+      "title": "Aplicaciones Móviles",
+      "description": "Desarrollamos aplicaciones móviles multiplataforma utilizando React Native o Flutter."
+    },
+    "webApps": {
+      "title": "Aplicaciones Web",
+      "description": "Creamos aplicaciones web personalizadas con características interactivas y experiencias de usuario fluidas."
+    },
+    "websites": {
+      "title": "Sitios Web",
+      "description": "Diseñamos y desarrollamos sitios web profesionales para empresas y organizaciones."
+    },
+    "automation": {
+      "title": "Automatización",
+      "description": "Automatizamos tareas repetitivas y optimizamos flujos de trabajo con scripts e integraciones personalizadas."
+    },
+    "serverless": {
+      "title": "Serverless",
+      "description": "Aprovechamos plataformas en la nube para crear aplicaciones escalables, basadas en eventos y rentables."
+    },
+    "desktopApps": {
+      "title": "Aplicaciones de Escritorio",
+      "description": "Desarrollamos aplicaciones nativas de escritorio para Windows, macOS y Linux utilizando Electron u otros frameworks."
+    },
+    "cliTools": {
+      "title": "Herramientas CLI",
+      "description": "Creamos herramientas de línea de comandos (CLI) para automatizar tareas, gestionar datos y más."
+    }
+  },
+  "ratings": {
+    "janeDoe": {
+      "name": "Jane Doe",
+      "date": "15 de agosto de 2023",
+      "message": "CodeSol fue fundamental para ayudarnos a desarrollar nuestra nueva plataforma de comercio electrónico. Su equipo fue profesional, eficiente e increíblemente competente. El resultado final superó nuestras expectativas y no podríamos estar más contentos con la colaboración."
+    },
+    "johnSmith": {
+      "name": "John Smith",
+      "date": "22 de julio de 2023",
+      "message": "Contratamos a CodeSol para construir una API personalizada para nuestro software, y entregaron una solución excepcional. Su comunicación fue excelente y demostraron un profundo conocimiento de nuestros requisitos técnicos. Recomendamos ampliamente a CodeSol para el desarrollo de APIs."
+    },
+    "aliceJohnson": {
+      "name": "Alice Johnson",
+      "date": "30 de junio de 2023",
+      "message": "Trabajar con CodeSol fue una experiencia fantástica de principio a fin. Desarrollaron una aplicación móvil nativa para nuestro negocio y la calidad de su trabajo fue excepcional. Su equipo fue receptivo, colaborativo y comprometido con entregar un producto de primer nivel."
+    }
+  },
+  "numbers": {
+    "projects": "Proyectos completados",
+    "clients": "Clientes satisfechos",
+    "years": "Años de experiencia"
   }
 }

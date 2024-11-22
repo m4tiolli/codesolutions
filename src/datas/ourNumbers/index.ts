@@ -1,21 +1,30 @@
+import { useTranslations } from "next-intl"
+
 interface IOurNumbers {
   number: number,
   description: string,
 }
 
-const ourNumbers: IOurNumbers[] = [
-  {
-    number: 100,
-    description: "Projects completed"
-  },
-  {
-    number: 50,
-    description: "Happy clients"
-  },
-  {
-    number: 2,
-    description: "Years of experience"
-  }
-]
+const useOurNumbers = () => {
 
-export default ourNumbers
+  const t = useTranslations("numbers")
+
+  const ourNumbers: IOurNumbers[] = [
+    {
+      number: 100,
+      description: t("projects")
+    },
+    {
+      number: 50,
+      description: t("clients")
+    },
+    {
+      number: 2,
+      description: t("years")
+    }
+  ]
+
+  return ourNumbers
+}
+
+export default useOurNumbers

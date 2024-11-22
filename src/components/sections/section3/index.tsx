@@ -2,7 +2,9 @@
 import companies from '@/datas/companies'
 import React from 'react'
 import Carousel from 'react-multi-carousel'
+import 'react-multi-carousel/lib/styles.css';
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 
 const responsive = {
   mobile: {
@@ -12,10 +14,13 @@ const responsive = {
 };
 
 const Section3 = () => {
+
+  const t = useTranslations("section3")
+
   return (
     <div className="flex flex-col items-start justify-start gap-4 w-full">
-      <h1 className="font-black text-4xl dark:text-zinc-200 text-preto">Why choose CodeSolutions?</h1>
-      <p className="font-normal text-[16px] dark:text-zinc-200 text-preto lg:w-4/5 text-balance">When you work with CodeSol, you&apos;re not just hiring a team of developers. You&apos;re partnering with a company that&apos;s dedicated to delivering exceptional software solutions. Here are a few reasons why clients choose us for their development needs:</p>
+      <h1 className="font-black text-4xl dark:text-zinc-200 text-preto">{t("title")}</h1>
+      <p className="font-normal text-[16px] dark:text-zinc-200 text-preto lg:w-4/5 text-balance">{t("description")}</p>
 
       <div className="lg:flex items-center justify-between gap-0 w-full pt-8 hidden">
         {companies.map((company, index) => (

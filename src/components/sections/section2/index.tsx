@@ -1,9 +1,11 @@
 "use client"
 import { Context } from "@/app/providers";
-import thingsWeDo from "@/datas/weDo"
+import useThingsWeDo from "@/datas/weDo"
 import { useContext } from "react";
 import Carousel from "react-multi-carousel"
+import 'react-multi-carousel/lib/styles.css';
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const responsive = {
   mobile: {
@@ -14,6 +16,10 @@ const responsive = {
 
 const Section2 = () => {
 
+  const thingsWeDo = useThingsWeDo()
+
+  const t = useTranslations('section2');
+
   const context = useContext(Context);
 
   if (!context) {
@@ -23,8 +29,8 @@ const Section2 = () => {
   const { section2Ref } = context;
   return (
     <div ref={section2Ref} className="flex flex-col items-start justify-start gap-4 w-full lg:w-auto">
-      <h1 className="font-black text-4xl dark:text-zinc-200 text-preto">What we do</h1>
-      <p className="font-normal text-[16px] dark:text-zinc-200 text-preto lg:w-4/5 text-balance">Our team has experience in a wide range of technologies, frameworks, and platforms. We provide high-quality, custom software development services tailored to your specific needs.</p>
+      <h1 className="font-black text-4xl dark:text-zinc-200 text-preto">{t("title")}</h1>
+      <p className="font-normal text-[16px] dark:text-zinc-200 text-preto lg:w-4/5 text-balance">{t("description")}</p>
 
       <div className="lg:grid grid-cols-5 gap-3 pt-8 hidden things-pai">
         {thingsWeDo.map((thing, index) => (

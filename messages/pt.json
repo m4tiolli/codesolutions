@@ -1,6 +1,107 @@
 {
+  "header": {
+    "about": "Sobre",
+    "services": "Serviços",
+    "portfolio": "Portfólio",
+    "contact": "Contato",
+    "getStarted": "Fale Conosco"
+  },
+  "footer": {
+    "copy": "Todos os direitos reservados."
+  },
   "section1": {
-    "title": "Nós construímos sistemas. Nós construímos sites",
-    "description": "Somos uma equipe de desenvolvedores de software que ajuda empresas a projetar e construir soluções de software personalizadas. Somos especialistas em desenvolvimento full-stack e trabalhamos com uma ampla gama de clientes para entregar produtos de alta qualidade."
+    "title": "Transformando Ideias em Soluções Digitais",
+    "description": "Na CodeSolutions, combinamos tecnologia de ponta com um atendimento personalizado para transformar seus desafios em oportunidades. Criamos soluções digitais inteligentes, ágeis e seguras, feitas sob medida para atender às suas necessidades e superar expectativas. Seja sua ideia um sistema, um site ou um aplicativo, estamos aqui para torná-la realidade.",
+    "button": "Fale Conosco"
+  },
+  "section2": {
+    "title": "Explorando o Poder da Tecnologia",
+    "description": "Na CodeSolutions, nossa especialidade é criar soluções que impulsionam o sucesso dos nossos clientes. Com uma equipe experiente em diversas tecnologias e plataformas, desenvolvemos softwares personalizados que atendem exatamente às suas necessidades. De sites a sistemas complexos, entregamos excelência em cada linha de código."
+  },
+  "section3": {
+    "title": "Por Que Somos a Escolha Certa?",
+    "description": "Escolher a CodeSolutions significa optar por inovação, comprometimento e qualidade. Nossos clientes nos escolhem porque somos mais do que desenvolvedores: somos parceiros no sucesso. Trabalhamos incansavelmente para entregar soluções que não apenas funcionam, mas também impressionam. Confie em quem transforma desafios em resultados."
+  },
+  "section4": {
+    "title": "Palavras Que Inspiram Confiança",
+    "description": "Nossos clientes são o reflexo do nosso trabalho. Com feedbacks sinceros e histórias de sucesso, eles compartilham como a CodeSolutions transformou seus projetos em realidades. Explore as avaliações de quem confiou em nós e descubra por que somos a escolha certa para o seu próximo desafio."
+  },
+  "section5": {
+    "title": "Resultados Que Falam Por Si Só",
+    "description": "Números não mentem, e na CodeSolutions, nossos resultados refletem o impacto que criamos. Projetos entregues, clientes satisfeitos e anos de experiência são apenas alguns dos marcos que nos destacam. Conheça os números que sustentam nosso compromisso com a excelência."
+  },
+  "section6": {
+    "title": "Dê o Primeiro Passo Para o Sucesso",
+    "description": "Suas ideias merecem ganhar vida com quem entende do assunto. Fale conosco para transformar sonhos em soluções digitais. Estamos prontos para ajudar você a alcançar seus objetivos com inovação e criatividade.",
+    "button": "Fale Agora com a CodeSolutions"
+  },
+  "thingsWeDo": {
+    "apis": {
+      "title": "APIs",
+      "description": "Projetamos, construímos e mantemos APIs para aplicações web e móveis."
+    },
+    "frontEnd": {
+      "title": "Front-End",
+      "description": "Criamos interfaces de usuário bonitas, responsivas e rápidas usando tecnologias modernas."
+    },
+    "backEnd": {
+      "title": "Back-End",
+      "description": "Arquitetamos aplicações de servidor escaláveis, manuteníveis e seguras para qualquer caso de uso."
+    },
+    "fullStack": {
+      "title": "Full Stack",
+      "description": "Oferecemos serviços de desenvolvimento ponta a ponta para aplicações web e móveis."
+    },
+    "databases": {
+      "title": "Bancos de Dados",
+      "description": "Projetamos, implantamos e otimizamos bancos de dados para aplicações web e móveis."
+    },
+    "mobileApps": {
+      "title": "Aplicativos Móveis",
+      "description": "Desenvolvemos aplicativos móveis multiplataforma usando React Native ou Flutter."
+    },
+    "webApps": {
+      "title": "Aplicações Web",
+      "description": "Criamos aplicações web personalizadas com recursos interativos e experiências de usuário fluidas."
+    },
+    "websites": {
+      "title": "Websites",
+      "description": "Projetamos e desenvolvemos websites profissionais para empresas e organizações."
+    },
+    "automation": {
+      "title": "Automação",
+      "description": "Automatizamos tarefas repetitivas e otimizamos fluxos de trabalho com scripts e integrações personalizados."
+    },
+    "serverless": {
+      "title": "Serverless",
+      "description": "Aproveitamos plataformas em nuvem para criar aplicações escaláveis, baseadas em eventos e de baixo custo."
+    },
+    "desktopApps": {
+      "title": "Aplicações Desktop",
+      "description": "Desenvolvemos aplicativos desktop nativos para Windows, macOS e Linux usando Electron ou outros frameworks."
+    },
+    "cliTools": {
+      "title": "Ferramentas CLI",
+      "description": "Criamos ferramentas de linha de comando (CLI) para automatizar tarefas, gerenciar dados e muito mais."
+    }
+  },
+  "ratings": {
+    "janeDoe": {
+      "date": "15 de agosto de 2023",
+      "message": "A CodeSol foi essencial para nos ajudar a desenvolver nossa nova plataforma de e-commerce. A equipe foi profissional, eficiente e incrivelmente habilidosa. O resultado final superou nossas expectativas, e não poderíamos estar mais felizes com a parceria."
+    },
+    "johnSmith": {
+      "date": "22 de julho de 2023",
+      "message": "Contratamos a CodeSol para construir uma API personalizada para nosso software, e eles entregaram uma solução excepcional. A comunicação foi excelente, e demonstraram um profundo entendimento de nossos requisitos técnicos. Recomendamos muito a CodeSol para desenvolvimento de APIs."
+    },
+    "aliceJohnson": {
+      "date": "30 de junho de 2023",
+      "message": "Trabalhar com a CodeSol foi uma experiência fantástica do início ao fim. Eles desenvolveram um aplicativo móvel nativo para o nosso negócio, e a qualidade do trabalho foi excepcional. A equipe foi responsiva, colaborativa e comprometida em entregar um produto de alto nível."
+    }
+  },
+  "numbers": {
+    "projects": "Projetos concluídos",
+    "clients": "Clientes satisfeitos",
+    "years": "Anos de experiência"
   }
 }

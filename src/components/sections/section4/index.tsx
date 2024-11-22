@@ -1,13 +1,19 @@
-import ratings from '@/datas/ratings'
 import Image from 'next/image'
 import React from 'react'
 import starFilled from '@/datas/ratings/star-fill.svg'
 import starOutline from '@/datas/ratings/star-outline.svg'
+import { useTranslations } from 'next-intl'
+import useRatings from '@/datas/ratings'
 
 const Section4 = () => {
+
+  const t = useTranslations("section4")
+
+  const ratings = useRatings()
+
   return (
     <div>
-      <h1 className="font-black text-4xl dark:text-zinc-200 text-preto">What our clients say</h1>
+      <h1 className="font-black text-4xl dark:text-zinc-200 text-preto">{t("title")}</h1>
 
       <div className="flex items-start justify-start flex-col gap-10 lg:gap-6 w-full pt-8">
         {ratings.map((rating, index) => (

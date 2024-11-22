@@ -1,7 +1,10 @@
-import ourNumbers from '@/datas/ourNumbers'
+import useOurNumbers from '@/datas/ourNumbers'
 import React from 'react'
 
 const Section5 = () => {
+
+  const ourNumbers = useOurNumbers()
+
   return (
     <div className="w-full flex lg:flex-row flex-col items-center justify-between gap-3">
       {ourNumbers.map((number, index) => (

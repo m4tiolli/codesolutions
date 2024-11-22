@@ -1,6 +1,110 @@
 {
+  "header": {
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "getStarted": "Get in Touch"
+  },
+  "footer": {
+    "copy": "All rights reserved."
+  },
   "section1": {
-    "title": "We build systems. We create websites.",
-    "description": "CodeSol is a team of software developers who help companies design and build custom software solutions. We're experts in full-stack development, and we've worked with a wide range of clients to deliver high-quality products."
+    "title": "Transforming Ideas into Digital Solutions",
+    "description": "At CodeSolutions, we combine cutting-edge technology with personalized service to turn your challenges into opportunities. We create smart, agile, and secure digital solutions tailored to meet your needs and exceed expectations. Whether your idea is a system, a website, or an application, we are here to make it a reality.",
+    "button": "Contact Us"
+  },
+  "section2": {
+    "title": "Harnessing the Power of Technology",
+    "description": "At CodeSolutions, we specialize in creating solutions that drive our clients' success. With a team experienced in various technologies and platforms, we develop customized software that meets your exact needs. From websites to complex systems, we deliver excellence in every line of code."
+  },
+  "section3": {
+    "title": "Why Choose Us?",
+    "description": "Choosing CodeSolutions means opting for innovation, commitment, and quality. Our clients choose us because we are more than developers: we are partners in success. We work tirelessly to deliver solutions that not only work but also impress. Trust those who turn challenges into results."
+  },
+  "section4": {
+    "title": "Words That Inspire Trust",
+    "description": "Our clients are a reflection of our work. Through sincere feedback and success stories, they share how CodeSolutions transformed their projects into realities. Explore the reviews of those who trusted us and discover why we are the right choice for your next challenge."
+  },
+  "section5": {
+    "title": "Results That Speak for Themselves",
+    "description": "Numbers don’t lie, and at CodeSolutions, our results reflect the impact we create. Delivered projects, satisfied clients, and years of experience are just some of the milestones that set us apart. Get to know the numbers that uphold our commitment to excellence."
+  },
+  "section6": {
+    "title": "Take the First Step to Success",
+    "description": "Your ideas deserve to come to life with those who understand the craft. Contact us to turn dreams into digital solutions. We are ready to help you achieve your goals with innovation and creativity.",
+    "button": "Contact CodeSolutions Now"
+  },
+  "thingsWeDo": {
+    "apis": {
+      "title": "APIs",
+      "description": "We design, build, and maintain APIs for web and mobile applications."
+    },
+    "frontEnd": {
+      "title": "Front-End",
+      "description": "We create beautiful, responsive, and fast user interfaces using modern web technologies."
+    },
+    "backEnd": {
+      "title": "Back-End",
+      "description": "We architect scalable, maintainable, and secure server-side applications for any use case."
+    },
+    "fullStack": {
+      "title": "Full Stack",
+      "description": "We provide end-to-end development services for web and mobile applications."
+    },
+    "databases": {
+      "title": "Databases",
+      "description": "We design, deploy, and optimize databases for web and mobile applications."
+    },
+    "mobileApps": {
+      "title": "Mobile Apps",
+      "description": "We develop cross-platform mobile apps using React Native or Flutter."
+    },
+    "webApps": {
+      "title": "Web Apps",
+      "description": "We build custom web applications with interactive features and seamless user experiences."
+    },
+    "websites": {
+      "title": "Websites",
+      "description": "We design and develop professional websites for businesses and organizations."
+    },
+    "automation": {
+      "title": "Automation",
+      "description": "We automate repetitive tasks and streamline workflows with custom scripts and integrations."
+    },
+    "serverless": {
+      "title": "Serverless",
+      "description": "We leverage cloud platforms to build scalable, event-driven, and cost-effective applications."
+    },
+    "desktopApps": {
+      "title": "Desktop Apps",
+      "description": "We develop native desktop applications for Windows, macOS, and Linux using Electron or other frameworks."
+    },
+    "cliTools": {
+      "title": "CLI Tools",
+      "description": "We create command-line interface (CLI) tools for automating tasks, managing data, and more."
+    }
+  },
+  "ratings": {
+    "janeDoe": {
+      "name": "Jane Doe",
+      "date": "August 15, 2023",
+      "message": "CodeSol was instrumental in helping us develop our new e-commerce platform. Their team was professional, efficient, and incredibly skilled. The end result exceeded our expectations, and we couldn't be happier with the partnership."
+    },
+    "johnSmith": {
+      "name": "John Smith",
+      "date": "July 22, 2023",
+      "message": "We hired CodeSol to build a custom API for our software, and they delivered an outstanding solution. Their communication was excellent, and they demonstrated a deep understanding of our technical requirements. We highly recommend CodeSol for API development."
+    },
+    "aliceJohnson": {
+      "name": "Alice Johnson",
+      "date": "June 30, 2023",
+      "message": "Working with CodeSol was a fantastic experience from start to finish. They developed a native mobile app for our business, and the quality of their work was exceptional. Their team was responsive, collaborative, and committed to delivering a top-tier product."
+    }
+  },
+  "numbers": {
+    "projects": "Projects completed",
+    "clients": "Satisfied clients",
+    "years": "Years of experience"
   }
 }
