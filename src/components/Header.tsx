@@ -107,7 +107,7 @@ function HeaderMobile({ isFixed }: { isFixed: boolean }) {
   const t = useTranslations("header")
 
   return (
-    <header className={`${isFixed ? 'header-fixed' : 'relative'} w-full h-[10dvh] px-4 py-2 border-b z-50 dark:bg-zinc-800 bg-[#f7fafc] border-[#e5e8eb] dark:border-zinc-700 flex items-center justify-between overflow-x-clip`}>
+    <header className={`${isFixed ? 'header-fixed' : 'relative'} w-full h-[10dvh] px-4 py-2 border-b dark:bg-zinc-800 bg-[#f7fafc] border-[#e5e8eb] dark:border-zinc-700 flex items-center justify-between overflow-x-clip`}>
       <Image src={isDarkMode ? logowhite : logo} alt='Logo' className='h-[70%] w-auto' onClick={() => router.push("/")} />
       <button className='text-5xl font-medium transition-all' onClick={() => setActive(!active)}><span
         className={`block w-8 h-[3px] bg-preto dark:bg-zinc-200 transition-all duration-300 transform ${active ? 'rotate-45 translate-y-[10px]' : 'rotate-0'}`}
@@ -119,7 +119,7 @@ function HeaderMobile({ isFixed }: { isFixed: boolean }) {
           className={`block w-8 h-[3px] bg-preto dark:bg-zinc-200 transition-all duration-300 transform ${active ? '-rotate-45 -translate-y-[0px]' : 'rotate-0 mt-[4px]'}`}
         ></span></button>
       <div className={`w-full h-[90dvh] absolute top-[10dvh] right-0 bg-black bg-opacity-50 z-10 transition-all ${active ? 'visible opacity-100' : 'invisible opacity-0'}`} onClick={() => setActive(!active)}>&nbsp;</div>
-      <nav className={`absolute top-[10dvh] h-[90dvh] w-3/5 dark:bg-zinc-800 bg-[#F7FAFC] z-20 ${active ? 'right-0' : 'right-[-100%]'} transition-all duration-500`}>
+      <nav className={`${isFixed ? 'fixed top-[10dvh]' : 'absolute top-[10dvh]'}  h-[90dvh] w-3/5 dark:bg-zinc-800 bg-[#F7FAFC] !z-[999] ${active ? 'right-0' : 'right-[-100%]'} transition-all duration-500 flex-start`}>
         <ul className='flex items-end flex-col justify-center gap-8 font-medium text-xl pt-[5dvh] px-5 w-full dark:text-zinc-200'>
           <li className='li'><Link href={'#about'}>{t("about")}</Link></li>
           <li className='li'><Link href={'#services'}>{t("services")}</Link></li>
