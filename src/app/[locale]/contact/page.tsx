@@ -169,7 +169,7 @@ const Contact: React.FC = () => {
             <input
               className='w-full border px-4 py-2 rounded-md outline-none ring-azul hover:ring-1 focus:ring-2 transition-all'
               type="text"
-              placeholder='Seu orçamento...'
+              placeholder='Sua ideia...'
               value={respostas['5'] || ''}
               onChange={(e) => handleAnswer({ id: '4', pergunta: '5', text: e.target.value })}
             />

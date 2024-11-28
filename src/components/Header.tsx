@@ -17,7 +17,6 @@ import useDarkMode from '@/hooks/useDarkMode';
 import { Languages } from '@/lib/types/languages';
 import { Link as Change } from '@/i18n/routing'
 import { useTranslations } from 'next-intl';
-import useCookies from '@/hooks/useCookies';
 
 function Header() {
   const [isMobile, setIsMobile] = useState(false);
