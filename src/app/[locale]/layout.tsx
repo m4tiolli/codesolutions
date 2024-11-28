@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "../globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import Providers from "../providers";
-import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { Languages } from "@/lib/types/languages";
+import { NextIntlClientProvider } from "next-intl";
+import Providers from "../providers";
 
 const inter = localFont({
   src: "../fonts/InterVariable.ttf",
@@ -78,11 +76,7 @@ export default async function RootLayout({
       >
         <NextIntlClientProvider messages={messages}>
           <Providers>
-            <Header />
-            <main className="px-[10vw] py-[5vh] min-h-[90dvh] pb-[5dvh] relative z-10 flex flex-col items-start justify-start gap-12 scroll-smooth">
-              {children}
-            </main>
-            <Footer />
+            {children}
           </Providers>
         </NextIntlClientProvider>
       </body>

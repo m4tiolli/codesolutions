@@ -4,7 +4,7 @@ import Image from 'next/image';
 import logo from '../../public/logo.svg';
 import logowhite from '../../public/logo white.svg'
 import Link from 'next/link';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import { Context } from '@/app/providers';
 import brasil from '@/datas/langs/Flag_of_Brazil.svg'
 import usa from '@/datas/langs/Flag_of_United_States.svg'
@@ -17,6 +17,7 @@ import useDarkMode from '@/hooks/useDarkMode';
 import { Languages } from '@/lib/types/languages';
 import { Link as Change } from '@/i18n/routing'
 import { useTranslations } from 'next-intl';
+import useCookies from '@/hooks/useCookies';
 
 function Header() {
   const [isMobile, setIsMobile] = useState(false);
@@ -69,14 +70,16 @@ function HeaderDesktop({ isFixed }: { isFixed: boolean }) {
 
   return (
     <header className={`w-full h-[10dvh] px-8 py-2 border-b dark:border-zinc-800 border-[#E5E8EB] items-center justify-between z-50 dark:bg-zinc-900 bg-[#f7fafc] ${isFixed ? 'header-fixed' : 'relative'} flex`}>
-      <Image src={isDarkMode ? logowhite : logo} alt='Logo' className='h-[90%] w-auto' />
+      <Link href={"/"} className='h-full w-auto'>
+        <Image src={isDarkMode ? logowhite : logo} alt='Logo' className='h-[90%] w-auto' />
+      </Link>
       <nav>
         <ul className='flex items-center justify-center gap-4 font-medium text-preto dark:text-zinc-200'>
           <li className='li'><Link href={'#about'}>{t("about")}</Link></li>
           <li className='li'><Link href={'#services'}>{t("services")}</Link></li>
           <li className='li'><Link href={'#portfolio'}>{t("portfolio")}</Link></li>
           <li className='li'><Link href={'#contact'}>{t("contact")}</Link></li>
-          <li><Link href={'#get-started'} className='button'>{t("getStarted")}</Link></li>
+          <li><Link href={"/pt/contact"} className='button'>{t("getStarted")}</Link></li>
           <button className='h-full w-fit relative flex items-center justify-center' onClick={() => setLangsOpen(!langsOpen)}>
             <Image className='size-6 rounded-full object-cover' src={params.locale === 'pt' ? brasil : params.locale === 'en' ? usa : esp} alt='Language' />
             <Image src={dropdown} alt='Dropdown' className={`h-4 dropdown w-auto pl-1 rounded-full ${langsOpen ? 'rotate-180 translate-x-1' : 'rotate-0'} transition-all`} />
@@ -102,13 +105,14 @@ function HeaderMobile({ isFixed }: { isFixed: boolean }) {
   const params: { locale: Languages } = useParams()
   const { isDarkMode, toggleDarkMode } = useDarkMode()
   const [langsOpen, setLangsOpen] = useState(false)
-  const router = useRouter();
   const [active, setActive] = useState(false);
   const t = useTranslations("header")
 
   return (
     <header className={`${isFixed ? 'header-fixed' : 'relative'} w-full h-[10dvh] px-4 py-2 border-b dark:bg-zinc-800 bg-[#f7fafc] border-[#e5e8eb] dark:border-zinc-700 flex items-center justify-between overflow-x-clip`}>
-      <Image src={isDarkMode ? logowhite : logo} alt='Logo' className='h-[70%] w-auto' onClick={() => router.push("/")} />
+      <Link href={"/"} className='h-full w-auto'>
+        <Image src={isDarkMode ? logowhite : logo} alt='Logo' className='h-[70%] w-auto' />
+      </Link>
       <button className='text-5xl font-medium transition-all' onClick={() => setActive(!active)}><span
         className={`block w-8 h-[3px] bg-preto dark:bg-zinc-200 transition-all duration-300 transform ${active ? 'rotate-45 translate-y-[10px]' : 'rotate-0'}`}
       ></span>
@@ -125,7 +129,7 @@ function HeaderMobile({ isFixed }: { isFixed: boolean }) {
           <li className='li'><Link href={'#services'}>{t("services")}</Link></li>
           <li className='li'><Link href={'#portfolio'}>{t("portfolio")}</Link></li>
           <li className='li'><Link href={'#contact'}>{t("contact")}</Link></li>
-          <li><Link href={'#get-started'} className='button'>{t("getStarted")}</Link></li>
+          <li><Link href={"/pt/contact"} className='button'>{t("getStarted")}</Link></li>
         </ul>
         <button className='absolute right-16 bottom-5 flex items-center justify-center dark:text-zinc-200' onClick={() => setLangsOpen(!langsOpen)}>
           <Image className='size-6 rounded-full object-cover' src={params.locale === 'pt' ? brasil : params.locale === 'en' ? usa : esp} alt='Language' />
