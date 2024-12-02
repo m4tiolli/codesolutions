@@ -125,6 +125,10 @@ html[class="!scroll-smooth dark"] ::-webkit-scrollbar-thumb {
   }
 }
 
+html[class="!scroll-smooth dark"] .background {
+  background: #18181b;
+}
+
 .background {
   position: fixed;
   width: 100vw;

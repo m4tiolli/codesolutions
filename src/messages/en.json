@@ -106,5 +106,41 @@
     "projects": "Projects completed",
     "clients": "Satisfied clients",
     "years": "Years of experience"
+  },
+  "contact": {
+    "title": "Let's Get Started!",
+    "description": "We’ll ask you a few questions so our team can help you in the best way possible.",
+    "questions": {
+      "1": "Which option best fits your business?",
+      "2": "What is your name?",
+      "3": "What is your best email?",
+      "4": "What is your WhatsApp number?",
+      "5": "What idea do you want to bring to life?",
+      "6": "What is your estimated budget?"
+    },
+    "options": {
+      "1": "I have a startup",
+      "2": "I am an infopreneur",
+      "3": "I am an entrepreneur",
+      "4": "I want to create a startup",
+      "5": "None of the above"
+    },
+    "step": "Step {step} of {totalSteps}",
+    "actions": {
+      "start": "Start",
+      "next": "Proceed",
+      "back": "Back",
+      "finish": "Finish"
+    },
+    "placeholders": {
+      "name": "Your name...",
+      "email": "Your email...",
+      "phone": "Your number...",
+      "idea": "Your idea..."
+    },
+    "done": {
+      "title": "Thanks for responding!",
+      "description": "We have received your responses and will be in touch shortly."
+    }
   }
 }

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import logo from '../../public/logo.svg';
 import logowhite from '../../public/logo white.svg'
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
+import { useParams, usePathname } from 'next/navigation';
 import { Context } from '@/app/providers';
 import brasil from '@/datas/langs/Flag_of_Brazil.svg'
 import usa from '@/datas/langs/Flag_of_United_States.svg'
@@ -59,7 +59,9 @@ function Header() {
 
 function HeaderDesktop({ isFixed }: { isFixed: boolean }) {
 
-  const params: { locale: Languages } = useParams()
+  const { locale } = useParams()
+
+  const pathname = usePathname()
 
   const { isDarkMode, toggleDarkMode } = useDarkMode()
 
@@ -78,13 +80,15 @@ function HeaderDesktop({ isFixed }: { isFixed: boolean }) {
           <li className='li'><Link href={'#services'}>{t("services")}</Link></li>
           <li className='li'><Link href={'#portfolio'}>{t("portfolio")}</Link></li>
           <li className='li'><Link href={'#contact'}>{t("contact")}</Link></li>
-          <li><Link href={"/pt/contact"} className='button'>{t("getStarted")}</Link></li>
+          <li><Link href={`/${locale}/contact`} className='button'>{t("getStarted")}</Link></li>
           <button className='h-full w-fit relative flex items-center justify-center' onClick={() => setLangsOpen(!langsOpen)}>
-            <Image className='size-6 rounded-full object-cover' src={params.locale === 'pt' ? brasil : params.locale === 'en' ? usa : esp} alt='Language' />
+            <Image className='size-6 rounded-full object-cover' src={locale === 'pt' ? brasil : locale === 'en' ? usa : esp} alt='Language' />
             <Image src={dropdown} alt='Dropdown' className={`h-4 dropdown w-auto pl-1 rounded-full ${langsOpen ? 'rotate-180 translate-x-1' : 'rotate-0'} transition-all`} />
             <div className={`absolute -right-5 dark:bg-zinc-800 bg-[#f7fafc] h-fit w-[10vw] px-2 py-2 rounded-md shadow-md flex flex-col items-start justify-start gap-3 ${langsOpen ? 'top-[10dvh] opacity-100 visible' : 'top-[2dvh] opacity-0 invisible'} transition-all duration-500`}>
               {languages.map((language, index) => (
-                <Change href={'/'} locale={language.abbreviation} key={index} className='flex items-center justify-start gap-2 transition-all hover:bg-black hover:bg-opacity-30 rounded-md w-full px-2 py-1'>
+                <Change href={`/${pathname.replace(/^\/[a-z]{2}/, '')}`} // Substitui o idioma atual pelo novo
+                  locale={language.abbreviation}
+                  key={index} className='flex items-center justify-start gap-2 transition-all hover:bg-black hover:bg-opacity-30 rounded-md w-full px-2 py-1'>
                   <Image className='size-6 rounded-full object-cover' src={language.flag} alt='Language' />
                   <p className='uppercase'>{language.abbreviation}</p>
                 </Change>
@@ -101,7 +105,9 @@ function HeaderDesktop({ isFixed }: { isFixed: boolean }) {
 }
 
 function HeaderMobile({ isFixed }: { isFixed: boolean }) {
-  const params: { locale: Languages } = useParams()
+  const { locale } = useParams()
+
+  const pathname = usePathname()
   const { isDarkMode, toggleDarkMode } = useDarkMode()
   const [langsOpen, setLangsOpen] = useState(false)
   const [active, setActive] = useState(false);
@@ -128,14 +134,15 @@ function HeaderMobile({ isFixed }: { isFixed: boolean }) {
           <li className='li'><Link href={'#services'}>{t("services")}</Link></li>
           <li className='li'><Link href={'#portfolio'}>{t("portfolio")}</Link></li>
           <li className='li'><Link href={'#contact'}>{t("contact")}</Link></li>
-          <li><Link href={"/pt/contact"} className='button'>{t("getStarted")}</Link></li>
+          <li><Link href={`/${locale}/contact`} className='button'>{t("getStarted")}</Link></li>
         </ul>
         <button className='absolute right-16 bottom-5 flex items-center justify-center dark:text-zinc-200' onClick={() => setLangsOpen(!langsOpen)}>
-          <Image className='size-6 rounded-full object-cover' src={params.locale === 'pt' ? brasil : params.locale === 'en' ? usa : esp} alt='Language' />
+          <Image className='size-6 rounded-full object-cover' src={locale === 'pt' ? brasil : locale === 'en' ? usa : esp} alt='Language' />
           <Image src={dropdown} alt='Dropdown' className={`h-4 dropdown w-auto pl-1 rounded-full ${langsOpen ? 'rotate-180 translate-x-1' : 'rotate-0'} transition-all`} />
           <div className={`absolute -right-5 dark:bg-zinc-800 bg-[#f7fafc] h-fit w-[40vw] px-2 py-2 rounded-md shadow-md flex flex-col items-start justify-start gap-3 ${langsOpen ? 'bottom-[5dvh] opacity-100 visible' : 'bottom-[2dvh] opacity-0 invisible'} transition-all duration-500`}>
             {languages.map((language, index) => (
-              <Change href={'/'} locale={language.abbreviation} key={index} className='flex items-center justify-start gap-2 transition-all hover:bg-black hover:bg-opacity-30 rounded-md w-full px-2 py-1'>
+              <Change href={`/${pathname.replace(/^\/[a-z]{2}/, '')}`} // Substitui o idioma atual pelo novo
+                locale={language.abbreviation} key={index} className='flex items-center justify-start gap-2 transition-all hover:bg-black hover:bg-opacity-30 rounded-md w-full px-2 py-1'>
                 <Image className='size-6 rounded-full object-cover' src={language.flag} alt='Language' />
                 <p className='uppercase'>{language.abbreviation}</p>
               </Change>

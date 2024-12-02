@@ -1,7 +1,8 @@
-"use client"
+"use client";
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Options from '@/components/Options';
+import { useTranslations } from 'next-intl';
 
 const ContactComponent = () => {
   const [start, setStart] = useState(0);
@@ -18,9 +19,13 @@ const ContactComponent = () => {
       ...prev,
       [selectedOption.pergunta]: selectedOption.text,
     }));
-
-    console.log(respostas);
   };
+
+  const handleFinish = () => {
+    console.log(respostas)
+  }
+
+  const first = useTranslations("contact");
 
   return (
     <div className="w-full min-h-[70dvh] pb-16 flex items-center justify-start flex-col relative overflow-hidden bg-zinc-200">
@@ -35,16 +40,16 @@ const ContactComponent = () => {
             transition={{ duration: 0.6, ease: 'linear' }}
           >
             <h1 className="text-preto font-extrabold text-2xl sm:text-4xl">
-              Queremos conhecer você e seu projeto!
+              {first("title")}
             </h1>
             <p className="text-gray-600 text-sm sm:text-md">
-              Vamos fazer algumas perguntas para que nossa equipe possa te ajudar da melhor forma possível.
+              {first("description")}
             </p>
             <button
               className="button w-full"
               onClick={handleNext}
             >
-              Iniciar
+              {first("actions.start")}
             </button>
           </motion.div>
         )}
@@ -59,21 +64,21 @@ const ContactComponent = () => {
             transition={{ duration: 0.6, ease: 'easeInOut' }}
           >
             <button onClick={() => setStart(start - 1)} className='bg-white text-zinc-500 hover:bg-zinc-200 transition-all size-6 rounded-full grid place-items-center absolute top-3 left-3'> {"<-"} </button>
-            <p className='absolute top-4 left-12 text-sm text-zinc-500'>Etapa {start} de 6</p>
+            <p className='absolute top-4 left-12 text-sm text-zinc-500'>{first("step", { step: start, totalSteps: "6" })}</p>
             <h1 className="text-preto font-extrabold text-xl sm:text-4xl">
-              Qual das opções mais condiz com seu negócio?
+              {first("questions.1")}
             </h1>
             <Options
               options={[
-                { pergunta: '1', id: '1', text: 'Tenho uma startup' },
-                { pergunta: '1', id: '2', text: 'Sou infoprodutor' },
-                { pergunta: '1', id: '3', text: 'Sou empreendedor' },
-                { pergunta: '1', id: '4', text: 'Quero criar uma startup' },
-                { pergunta: '1', id: '5', text: 'Nenhuma das opções' },
+                { pergunta: '1', id: '1', text: first("options.1") },
+                { pergunta: '1', id: '2', text: first("options.2") },
+                { pergunta: '1', id: '3', text: first("options.3") },
+                { pergunta: '1', id: '4', text: first("options.4") },
+                { pergunta: '1', id: '5', text: first("options.5") },
               ]}
               onAnswer={handleAnswer}
             />
-            <button className='button w-full' onClick={() => setStart(start + 1)}>Prosseguir</button>
+            <button className='button w-full' onClick={() => setStart(start + 1)}>{first("actions.next")}</button>
           </motion.div>
         )}
 
@@ -87,18 +92,18 @@ const ContactComponent = () => {
             transition={{ duration: 0.6, ease: 'easeInOut' }}
           >
             <button onClick={() => setStart(start - 1)} className='bg-white text-zinc-500 hover:bg-zinc-200 transition-all size-6 rounded-full grid place-items-center absolute top-3 left-3'> {"<-"} </button>
-            <p className='absolute top-4 left-12 text-sm text-zinc-500'>Etapa {start} de 6</p>
+            <p className='absolute top-4 left-12 text-sm text-zinc-500'>{first("step", { step: start, totalSteps: "6" })}</p>
             <h1 className="text-preto font-extrabold text-xl sm:text-4xl">
-              Qual o seu nome?
+              {first("questions.2")}
             </h1>
             <input
               className='w-full border px-4 py-2 rounded-md outline-none ring-azul hover:ring-1 focus:ring-2 transition-all'
               type="text"
-              placeholder='Seu nome...'
+              placeholder={first("placeholders.name")}
               value={respostas['2'] || ''}
               onChange={(e) => handleAnswer({ id: '1', pergunta: '2', text: e.target.value })}
             />
-            <button className='button w-full' onClick={() => setStart(start + 1)}>Prosseguir</button>
+            <button className='button w-full' onClick={() => setStart(start + 1)}>{first("actions.next")}</button>
           </motion.div>
         )}
 
@@ -112,18 +117,18 @@ const ContactComponent = () => {
             transition={{ duration: 0.6, ease: 'easeInOut' }}
           >
             <button onClick={() => setStart(start - 1)} className='bg-white text-zinc-500 hover:bg-zinc-200 transition-all size-6 rounded-full grid place-items-center absolute top-3 left-3'> {"<-"} </button>
-            <p className='absolute top-4 left-12 text-sm text-zinc-500'>Etapa {start} de 6</p>
+            <p className='absolute top-4 left-12 text-sm text-zinc-500'>{first("step", { step: start, totalSteps: "6" })}</p>
             <h1 className="text-preto font-extrabold text-xl sm:text-4xl">
-              Qual o seu melhor e-mail?
+              {first("questions.3")}
             </h1>
             <input
               className='w-full border px-4 py-2 rounded-md outline-none ring-azul hover:ring-1 focus:ring-2 transition-all'
               type="email"
-              placeholder='Seu e-mail...'
+              placeholder={first("placeholders.email")}
               value={respostas['3'] || ''}
               onChange={(e) => handleAnswer({ id: '2', pergunta: '3', text: e.target.value })}
             />
-            <button className='button w-full' onClick={() => setStart(start + 1)}>Prosseguir</button>
+            <button className='button w-full' onClick={() => setStart(start + 1)}>{first("actions.next")}</button>
           </motion.div>
         )}
 
@@ -137,18 +142,18 @@ const ContactComponent = () => {
             transition={{ duration: 0.6, ease: 'easeInOut' }}
           >
             <button onClick={() => setStart(start - 1)} className='bg-white text-zinc-500 hover:bg-zinc-200 transition-all size-6 rounded-full grid place-items-center absolute top-3 left-3'> {"<-"} </button>
-            <p className='absolute top-4 left-12 text-sm text-zinc-500'>Etapa {start} de 6</p>
+            <p className='absolute top-4 left-12 text-sm text-zinc-500'>{first("step", { step: start, totalSteps: "6" })}</p>
             <h1 className="text-preto font-extrabold text-xl sm:text-4xl">
-              Qual o seu número de WhatsApp?
+              {first("questions.4")}
             </h1>
             <input
               className='w-full border px-4 py-2 rounded-md outline-none ring-azul hover:ring-1 focus:ring-2 transition-all'
               type="text"
-              placeholder='Seu número...'
+              placeholder={first("placeholders.phone")}
               value={respostas['4'] || ''}
               onChange={(e) => handleAnswer({ id: '3', pergunta: '4', text: e.target.value })}
             />
-            <button className='button w-full' onClick={() => setStart(start + 1)}>Prosseguir</button>
+            <button className='button w-full' onClick={() => setStart(start + 1)}>{first("actions.next")}</button>
           </motion.div>
         )}
 
@@ -162,18 +167,18 @@ const ContactComponent = () => {
             transition={{ duration: 0.6, ease: 'easeInOut' }}
           >
             <button onClick={() => setStart(start - 1)} className='bg-white text-zinc-500 hover:bg-zinc-200 transition-all size-6 rounded-full grid place-items-center absolute top-3 left-3'> {"<-"} </button>
-            <p className='absolute top-4 left-12 text-sm text-zinc-500'>Etapa {start} de 6</p>
+            <p className='absolute top-4 left-12 text-sm text-zinc-500'>{first("step", { step: start, totalSteps: "6" })}</p>
             <h1 className="text-preto font-extrabold text-xl sm:text-4xl">
-              Qual ideia você quer tirar do papel?
+              {first("questions.5")}
             </h1>
             <input
               className='w-full border px-4 py-2 rounded-md outline-none ring-azul hover:ring-1 focus:ring-2 transition-all'
               type="text"
-              placeholder='Sua ideia...'
+              placeholder={first("placeholders.idea")}
               value={respostas['5'] || ''}
               onChange={(e) => handleAnswer({ id: '4', pergunta: '5', text: e.target.value })}
             />
-            <button className='button w-full' onClick={() => setStart(start + 1)}>Prosseguir</button>
+            <button className='button w-full' onClick={() => setStart(start + 1)}>{first("actions.next")}</button>
           </motion.div>
         )}
 
@@ -187,18 +192,18 @@ const ContactComponent = () => {
             transition={{ duration: 0.6, ease: 'easeInOut' }}
           >
             <button onClick={() => setStart(start - 1)} className='bg-white text-zinc-500 hover:bg-zinc-200 transition-all size-6 rounded-full grid place-items-center absolute top-3 left-3'> {"<-"} </button>
-            <p className='absolute top-4 left-12 text-sm text-zinc-500'>Etapa {start} de 6</p>
+            <p className='absolute top-4 left-12 text-sm text-zinc-500'>{first("step", { step: start, totalSteps: "6" })}</p>
             <h1 className="text-preto font-extrabold text-xl sm:text-4xl">
-              Qual é o seu orçamento estimado?
+              {first("questions.6")}
             </h1>
             <input
               className='w-full border px-4 py-2 rounded-md outline-none ring-azul hover:ring-1 focus:ring-2 transition-all'
               type="text"
-              placeholder='Seu orçamento...'
+              placeholder={first("placeholders.idea")}
               value={respostas['6'] || ''}
               onChange={(e) => handleAnswer({ id: '4', pergunta: '6', text: e.target.value })}
             />
-            <button className='button w-full' onClick={() => setStart(start + 1)}>Finalizar</button>
+            <button className='button w-full' onClick={handleFinish}>{first("actions.finish")}</button>
           </motion.div>
         )}
 
@@ -212,16 +217,16 @@ const ContactComponent = () => {
             transition={{ duration: 0.6, ease: 'easeInOut' }}
           >
             <h1 className="text-preto font-extrabold text-2xl sm:text-4xl">
-              Obrigado por responder!
+              {first("done.title")}
             </h1>
             <p className="text-gray-600 text-sm sm:text-md">
-              Nós recebemos suas respostas e em breve entraremos em contato.
+              {first("done.description")}
             </p>
             <button
               className="button w-full"
               onClick={() => console.log('JSON de respostas:', JSON.stringify(respostas))}
             >
-              Voltar
+              {first("actions.back")}
             </button>
           </motion.div>
         )}

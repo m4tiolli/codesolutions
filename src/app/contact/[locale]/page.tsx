@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import ContactComponent from '@/components/ContactComponent';
 import { setRequestLocale } from 'next-intl/server';

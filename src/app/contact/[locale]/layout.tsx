@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "../globals.css";
+import "../../globals.css";
 import { getMessages } from "next-intl/server";
 import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { Languages } from "@/lib/types/languages";
 import { NextIntlClientProvider } from "next-intl";
-import Providers from "../providers";
+import Providers from "../../providers";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const inter = localFont({
-  src: "../fonts/InterVariable.ttf",
+  src: "../../fonts/InterVariable.ttf",
   variable: "--font-inter",
   weight: "100 200 300 400 500 600 700 800 900",
 });

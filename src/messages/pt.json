@@ -103,5 +103,41 @@
     "projects": "Projetos concluídos",
     "clients": "Clientes satisfeitos",
     "years": "Anos de experiência"
+  },
+  "contact": {
+    "title": "Vamos começar!",
+    "description": "Vamos fazer algumas perguntas para que nossa equipe possa te ajudar da melhor forma possível.",
+    "questions": {
+      "1": "Qual das opções mais condiz com seu negócio?",
+      "2": "Qual o seu nome?",
+      "3": "Qual o seu melhor e-mail?",
+      "4": "Qual o seu número de WhatsApp?",
+      "5": "Qual ideia você quer tirar do papel?",
+      "6": "Qual o seu orçamento estimado?"
+    },
+    "options": {
+      "1": "Tenho uma startup",
+      "2": "Sou infoprodutor",
+      "3": "Sou empreendedor",
+      "4": "Quero criar uma startup",
+      "5": "Nenhuma das opções"
+    },
+    "step": "Etapa {step} de {totalSteps}",
+    "actions": {
+      "start": "Iniciar",
+      "next": "Prosseguir",
+      "back": "Voltar",
+      "finish": "Finalizar"
+    },
+    "placeholders": {
+      "name": "Seu nome...",
+      "email": "Seu e-mail...",
+      "phone": "Seu número...",
+      "idea": "Sua ideia..."
+    },
+    "done": {
+      "title": "Obrigado por responder!",
+      "description": "Nós recebemos suas respostas e em breve entraremos em contato."
+    }
   }
 }
