@@ -14,7 +14,6 @@ import languages from '@/datas/langs';
 import sol from '../../public/sun-regular.svg'
 import lua from '../../public/moon-regular.svg'
 import useDarkMode from '@/hooks/useDarkMode';
-import { Languages } from '@/lib/types/languages';
 import { Link as Change } from '@/i18n/routing'
 import { useTranslations } from 'next-intl';
 

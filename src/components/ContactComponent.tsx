@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Options from '@/components/Options';
 import { useTranslations } from 'next-intl';
 
-const ContactComponent = () => {
+const ContactComponent = ({open, setOpen}: {open: boolean, setOpen: React.Dispatch<React.SetStateAction<boolean>>}) => {
   const [start, setStart] = useState(0);
   const [respostas, setRespostas] = useState<{ [key: string]: string }>({});
 
@@ -28,7 +28,7 @@ const ContactComponent = () => {
   const first = useTranslations("contact");
 
   return (
-    <div className="w-full min-h-[70dvh] pb-16 flex items-center justify-start flex-col relative overflow-hidden bg-zinc-200">
+    <motion.div className={`w-full h-[90dvh] !z-[99999] fixed top-[10dvh] left-0 pb-16 flex items-center justify-center flex-col overflow-hidden bg-zinc-900 bg-opacity-30 ${open ? 'opacity-100 visible' : 'invisible opacity-0'}`} onClick={() => setOpen(false)}>
       <AnimatePresence mode="wait">
         {!start && (
           <motion.div
@@ -231,13 +231,7 @@ const ContactComponent = () => {
           </motion.div>
         )}
       </AnimatePresence>
-
-      <ul className="background">
-        {Array.from({ length: 20 }).map((_, index) => (
-          <li key={index}></li>
-        ))}
-      </ul>
-    </div>
+    </motion.div>
   );
 };
 
