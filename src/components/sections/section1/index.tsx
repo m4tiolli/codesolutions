@@ -20,7 +20,7 @@ const Section1 = () => {
       <div className="w-full h-full bg-black bg-opacity-60 flex flex-col items-start justify-center px-5 lg:px-10 py-10 lg:py-0 rounded-md gap-6">
         <h1 className="lg:text-6xl text-4xl text-balance text-white font-black">{t("title")}</h1>
         <p className="text-white font-normal text-[16px] text-balance">{t("description")}</p>
-        <button className="button">{t("button")}</button>
+        <button className="button" onClick={() => window.location.href += "#contact"}>{t("button")}</button>
       </div>
     </div>
   )

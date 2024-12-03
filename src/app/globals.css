@@ -131,7 +131,7 @@ html[class="!scroll-smooth dark"] .background {
 
 .background {
   position: absolute;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   top: 0;
   left: 0;
@@ -139,7 +139,7 @@ html[class="!scroll-smooth dark"] .background {
   padding: 0;
   background: #f7fafc;
   overflow: hidden;
-  z-index: 1;
+  z-index: 10;
 }
 .background li {
   position: absolute;
