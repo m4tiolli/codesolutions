@@ -6,7 +6,7 @@ export async function POST(req: NextRequest) {
 
     const data = await req.json()
 
-    const { negocio, nome, email, whatsapp, pedido, orcamento } = data
+    const { negocio, nome, email, whatsapp, pedido, orcamento, localizacao, timezone } = data
 
     const transporter = nodemailer.createTransport({
       host: "smtp.hostinger.com",
@@ -31,6 +31,8 @@ export async function POST(req: NextRequest) {
             Negócio: ${negocio}
             Pedido: ${pedido}
             Orçamento: ${orcamento}
+            Localização: ${localizacao}
+            Fuso horário: ${timezone}
       `,
       html: `
             <img src='www.codesol.com.br/logo.svg' align='center' width='200px' heigth='150px' />
@@ -45,6 +47,8 @@ export async function POST(req: NextRequest) {
               <li>Negócio: ${negocio}</li>
               <li>Pedido: ${pedido}</li>
               <li>Orçamento: ${orcamento}</li>
+              <li>Localização: ${localizacao}</li>
+              <li>Fuso horário: ${timezone}</li>
             </ul>
             <a href='mailto:${email}'>Mandar email</a>
             <a href='https://wa.me/${whatsapp}'>Mensagem whatsapp</a>

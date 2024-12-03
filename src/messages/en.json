@@ -136,7 +136,8 @@
       "name": "Your name...",
       "email": "Your email...",
       "phone": "Your number...",
-      "idea": "Your idea..."
+      "idea": "Your idea...",
+      "price": "Your budget..."
     },
     "done": {
       "title": "Thanks for responding!",

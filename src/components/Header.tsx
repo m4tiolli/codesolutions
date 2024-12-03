@@ -69,7 +69,7 @@ function HeaderDesktop({ isFixed }: { isFixed: boolean }) {
   const t = useTranslations("header")
 
   return (
-    <header className={`w-full h-[10dvh] px-8 py-2 border-b dark:border-zinc-800 border-[#E5E8EB] items-center justify-between z-50 dark:bg-zinc-900 bg-[#f7fafc] ${isFixed ? 'header-fixed' : 'relative'} flex`}>
+    <header className={`w-full h-[10dvh] px-8 py-2 border-b dark:border-zinc-800 border-[#E5E8EB] items-center justify-between dark:bg-zinc-900 bg-[#f7fafc] ${isFixed ? 'header-fixed' : 'relative'} flex`}>
       <Link href={"/"} className='h-full w-auto'>
         <Image src={isDarkMode ? logowhite : logo} alt='Logo' className='h-[90%] w-auto' />
       </Link>
@@ -79,7 +79,7 @@ function HeaderDesktop({ isFixed }: { isFixed: boolean }) {
           <li className='li'><Link href={'#services'}>{t("services")}</Link></li>
           <li className='li'><Link href={'#portfolio'}>{t("portfolio")}</Link></li>
           <li className='li'><Link href={'#contact'}>{t("contact")}</Link></li>
-          <li><Link href={`/${locale}/contact`} className='button'>{t("getStarted")}</Link></li>
+          <li><Link href={'#contact'} className='button'>{t("getStarted")}</Link></li>
           <button className='h-full w-fit relative flex items-center justify-center' onClick={() => setLangsOpen(!langsOpen)}>
             <Image className='size-6 rounded-full object-cover' src={locale === 'pt' ? brasil : locale === 'en' ? usa : esp} alt='Language' />
             <Image src={dropdown} alt='Dropdown' className={`h-4 dropdown w-auto pl-1 rounded-full ${langsOpen ? 'rotate-180 translate-x-1' : 'rotate-0'} transition-all`} />
@@ -133,7 +133,7 @@ function HeaderMobile({ isFixed }: { isFixed: boolean }) {
           <li className='li'><Link href={'#services'}>{t("services")}</Link></li>
           <li className='li'><Link href={'#portfolio'}>{t("portfolio")}</Link></li>
           <li className='li'><Link href={'#contact'}>{t("contact")}</Link></li>
-          <li><Link href={`/${locale}/contact`} className='button'>{t("getStarted")}</Link></li>
+          <li><Link href={'#contact'} className='button'>{t("getStarted")}</Link></li>
         </ul>
         <button className='absolute right-16 bottom-5 flex items-center justify-center dark:text-zinc-200' onClick={() => setLangsOpen(!langsOpen)}>
           <Image className='size-6 rounded-full object-cover' src={locale === 'pt' ? brasil : locale === 'en' ? usa : esp} alt='Language' />

@@ -133,7 +133,8 @@
       "name": "Seu nome...",
       "email": "Seu e-mail...",
       "phone": "Seu número...",
-      "idea": "Sua ideia..."
+      "idea": "Sua ideia...",
+      "price": "Seu orçamento..."
     },
     "done": {
       "title": "Obrigado por responder!",

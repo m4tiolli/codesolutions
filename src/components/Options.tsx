@@ -27,7 +27,7 @@ const QuestionWithOptions: React.FC<QuestionProps> = ({ options, onAnswer }) => 
             <button
               className={`w-full py-3 px-4 text-left rounded-md font-medium border transition-all ${selectedOption === option.id
                   ? 'bg-azul text-white border-blue-500'
-                  : 'bg-zinc-100 text-preto border-zinc-300 hover:bg-zinc-200'
+                  : 'bg-zinc-100 dark:bg-zinc-700 text-preto dark:text-zinc-200 border-zinc-300 dark:border-zinc-600 hover:bg-zinc-200'
                 }`}
               onClick={() => handleOptionClick(option)}
             >

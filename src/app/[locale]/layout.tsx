@@ -79,7 +79,7 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <Providers>
             <Header />
-            <main className="px-[10vw] py-[5vh] min-h-[80dvh] pb-[5dvh] relative z-10 flex flex-col items-start justify-start gap-12 scroll-smooth">
+            <main className="px-[10vw] pt-[5vh] min-h-[80dvh] relative z-10 flex flex-col items-start justify-start gap-12 scroll-smooth">
               {children}
             </main>
             <Footer />
